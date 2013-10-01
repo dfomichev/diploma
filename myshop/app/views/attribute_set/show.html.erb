@@ -1,0 +1,44 @@
+<%= javascript_tag do %>
+$(function() {
+
+        var i = $('#p_attributes p').length + 1;
+    
+        $(document).on('click','#addAttribute', function() {
+          var str = '<%= render 'attribute_fields' %>';
+          str=str.replace(/_cnt_/g,i,'N');
+          str=str.replace(/_ord_/g,i*10,'N');
+          $(str).appendTo('#p_attributes');
+                i++;
+                return false;
+        });
+        
+        $(document).on('click','#remElemet', function() { 
+          if ($('#p_attributes p').length>1){
+            $(this).parents('p').remove();
+          };
+                return false;
+        });
+});
+<% end %>
+
+
+<%= form_for :attr, url: {action: "save"} do |f| %>
+<div class="attribute_name"><input type="text" name="group_name" value="" /><input type="hidden" name="group_id" value="<%= @group_id %>" /><div>
+  <br>
+  <%= f.submit "Add",id:"addAttribute" %>
+  <div id="p_attributes">
+    <p>
+      <input type="text" name="param[0][order]" value="10" />
+      <input type="text" name="param[0][name]" value="" />
+      <select name="param[0][type]">
+      <% @attribute_types.each do |t| %>
+        <option><%= t %></option>
+      <% end %>
+      </select> 
+      <a href="#" id="remElemet">Remove</a>
+    </p>    
+  </div>
+  <%= f.submit "save" %>
+
+<% end %>
+

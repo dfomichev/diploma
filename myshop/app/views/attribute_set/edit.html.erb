@@ -1,0 +1,62 @@
+<%= javascript_tag do %>
+$(function() {
+  
+        var k = $('#p_groups span').length;
+        
+    
+        $(document).on('click','#addAttribute', function() {
+          
+         var i = $(this).parents("div[class^='attribute_group']").children().filter(":last").attr("counter");
+         i = parseInt(i)+1;
+         var g_num=$(this).parents("div[class^='attribute_group']").attr("counter");
+          
+          var str = '<%= render 'attribute_fields' %>';
+          str=str.replace(/_cnt_/g,i);
+          str=str.replace(/_gnum_/g,g_num);
+          str=str.replace(/_ord_/g,i*10);
+          $(this).parents("div[class^='attribute_group']").append(str);
+                i++;
+                return false;
+        });
+        $(document).on('click','#addGroup', function() {
+          var str = '<%= render :partial => 'group_fields' %>';
+          str=str.replace(/_cnt_/g,k);
+        
+          $(str).appendTo('#p_groups');
+                k++;
+               $('.attribute_group').each(function(index)
+                {
+                  $(this).addClass(index % 2 ? 'odd' : 'even');
+                });          
+
+                return false;
+        });
+        
+        
+        $(document).on('click','#remElemet', function() { 
+          if ($('#p_attributes p').length>1){
+            $(this).parents('p').remove();
+          };
+                return false;
+        });
+        $(document).on('click','#remGroup', function() {
+          if ($('#p_groups span').length>1){
+            $(this).parents('span').remove();
+          };
+                return false;
+        });
+        
+});
+<% end %>
+
+
+<%= form_for :attr, url: {action: "save"} do |f| %>
+  <input type="text" name="name" value="" /><input type="hidden" name="attr_set_id" value="" />
+  <BR>
+  <div id="p_groups">
+  </div>
+  <%= f.submit "save" %>
+  <%= f.submit "Add Group",id:"addGroup" %>
+  
+<% end %>
+
