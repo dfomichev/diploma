@@ -17,15 +17,18 @@ class AttributeSetController < ApplicationController
     init	
     attr_set={}
     attr_set[:name]=params[:name]
+    attr_set[:name]=params[:name]
     attr_set[:list]={}
 
     params[:group].sort_by{|x,y|y[:order]}.each do |k,v|
       attr_set[:list][v[:name]]={}
       attr_set[:list][v[:name]][:id]=SecureRandom.hex
+      attr_set[:list][v[:name]][:tag]=v[:tag]
       list={}
       params[:param][k].sort_by{|x,y|y[:order]} .each do |a,b|    
          list[b[:name]]={}
          list[b[:name]][:type]=b[:type]
+         list[b[:name]][:tag]=b[:tag]
       end
       attr_set[:list][v[:name]][:attributes]=list
     end
