@@ -7,7 +7,6 @@ $(function() {
         $(document).on('click','#addAttribute', function() {
           
          var i = $(this).parents("div[class^='attribute_group']").children().filter(":last").attr("counter");
-	 alert(i);
          i = parseInt(i)+1;
          var g_num=$(this).parents("div[class^='attribute_group']").attr("counter");
           
@@ -36,7 +35,7 @@ $(function() {
         
         
         $(document).on('click','#remElemet', function() { 
-          if ($('#attr_list p').length>2){
+          if ($('#attr_list p').length>1){
             $(this).parents('p').remove();
           };
                 return false;
@@ -63,7 +62,7 @@ $(function() {
 	<div id="attr_list" class="attribute_group <%= eo %>" counter="<%= gc %>"> 
 		<input type="text" name="group[<%= gc %>][order]" value="<%= gc*10 %>" />
 		 <input type="text" name="group[<%= gc %>][name]" value="<%= k %>" />
-		<input type="text" name="group[<%= gc %>][tag]" value="<%= v[:tag] %>" />
+		<input type="text" name="group[<%= gc %>][tag]" value="<%= v['tag'] %>" />
 		 <a href="#" id="remGroup">Remove Group</a>
 		  <br>
 		  <input type="submit" id="addAttribute" value="Add">
@@ -71,7 +70,7 @@ $(function() {
 			<p counter=<%= ac %>>
 			<input type="text" name="param[<%= gc %>][<%= ac %>][order]" value="<%= ac*10  %>" />		
 			<input type="text" name="param[<%= gc %>][<%= ac %>][name]" value="<%= a %>" />		
-			<input type="text" name="param[<%= gc %>][<%= ac %>][tag]" value="<%= b[:tag] %>" />		
+			<input type="text" name="param[<%= gc %>][<%= ac %>][tag]" value="<%= b['tag'] %>" />		
 			<select name="param[<%= gc %>][<%= ac %>][type]">
 			<% @attribute_types.each do |t| %>
 			<% selected=t==b['type']?'selected':'' %>	
