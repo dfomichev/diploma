@@ -18,24 +18,23 @@ class AttributeSetController < ApplicationController
     attr_set={}
     attr_set[:name]=params[:name]
     attr_set[:list]={}
-    params[:group].each do |k,v|
+
+    params[:group].sort_by{|x,y|y[:order]}.each do |k,v|
       attr_set[:list][v[:name]]={}
       attr_set[:list][v[:name]][:id]=SecureRandom.hex
-      attr_set[:list][v[:name]][:order]=v[:order]
       list={}
-      params[:param][k].each do |a,b|    
+      params[:param][k].sort_by{|x,y|y[:order]} .each do |a,b|    
          list[b[:name]]={}
          list[b[:name]][:type]=b[:type]
-         list[b[:name]][:order]=b[:order]
       end
       attr_set[:list][v[:name]][:attributes]=list
-
-      
     end
-    
-      @attributes.update_attribute(:name,attr_set[:name] )
-      @attributes.update_attribute(:list,attr_set[:list])
-      @attributes.save
+    @attributes.update_attribute(:name,attr_set[:name] )
+    @attributes.update_attribute(:list,attr_set[:list])
+    @attributes.save
+     		
+    set_data
+    render :show
   end
   
   private 

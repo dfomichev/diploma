@@ -2,7 +2,7 @@
 <% @list.each do |k,v| %>
 <div>
       <p><%= k %></p>
-	<% v["attributes"].each do |a,v| %>
+	<% v[:attributes].each do |a,v| %>
 		<p><%= a %>
 		<%= v['type'] %></p>
 	<% end %>

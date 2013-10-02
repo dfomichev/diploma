@@ -7,6 +7,7 @@ $(function() {
         $(document).on('click','#addAttribute', function() {
           
          var i = $(this).parents("div[class^='attribute_group']").children().filter(":last").attr("counter");
+	 alert(i);
          i = parseInt(i)+1;
          var g_num=$(this).parents("div[class^='attribute_group']").attr("counter");
           
@@ -21,6 +22,7 @@ $(function() {
         $(document).on('click','#addGroup', function() {
           var str = '<%= render :partial => 'group_fields' %>';
           str=str.replace(/_cnt_/g,k);
+          str=str.replace(/_ord_/g,(k+1)*10);
         
           $(str).appendTo('#p_groups');
                 k++;
@@ -34,7 +36,7 @@ $(function() {
         
         
         $(document).on('click','#remElemet', function() { 
-          if ($('#p_attributes p').length>1){
+          if ($('#attr_list p').length>2){
             $(this).parents('p').remove();
           };
                 return false;
@@ -50,7 +52,7 @@ $(function() {
 <% end %>
 
 
-<%= form_for :attr, url: {action: "save"} do |f| %>
+<%= form_for :attr, url: {action: "save", id: @group_id } do |f| %>
   <input type="text" name="name" value="<%= @name %>" /><input type="hidden" name="attr_set_id" value="" />
   <BR>
   <div id="p_groups">
@@ -58,36 +60,31 @@ $(function() {
 	<% @list.each_with_index do |(k,v),gc| %>
 	<% eo=gc.even? ? 'even':'odd' %>
 	<span>
-	<div class="attribute_group <%= eo %>" counter="<%= gc %>"> 
-		<input type="text" name="group[<%= gc %>][order]" value="<%= v['order'] %>" />
-		 <input type="text" name="group[<%= gc %>_][name]" value="<%= k %>" />
+	<div id="attr_list" class="attribute_group <%= eo %>" counter="<%= gc %>"> 
+		<input type="text" name="group[<%= gc %>][order]" value="<%= gc*10 %>" />
+		 <input type="text" name="group[<%= gc %>][name]" value="<%= k %>" />
 		 <a href="#" id="remGroup">Remove Group</a>
-		<div counter=0>
 		  <br>
-		  <input type="submit" id="addAttribute" value="Add"></div>
-		  <div id="p_attributes">
-		  <p>	
+		  <input type="submit" id="addAttribute" value="Add">
 		        <% v["attributes"].each_with_index do |(a,b),ac| %>
-			<input type="text" name="param[<%= gc %>][<%= ac %>][order]" value="<%= b['order'] %>" />		
+			<p counter=<%= ac %>>
+			<input type="text" name="param[<%= gc %>][<%= ac %>][order]" value="<%= ac*10  %>" />		
 			<input type="text" name="param[<%= gc %>][<%= ac %>][name]" value="<%= a %>" />		
 			<select name="param[<%= gc %>][<%= ac %>][type]">
 			<% @attribute_types.each do |t| %>
 			<% selected=t==b['type']?'selected':'' %>	
-			<option <%= selected %> >
-			<%= t %>
-			</option>
+			<option <%= selected %> ><%= t %></option>
 			<% end %>
 			</select> 
-
+			<a href="#" id="remElemet">Remove</a>
+			</p>
 			<%end %>
-		  </p>
-		  </div>
 	</div>
 	</span>
 	<% end %>
   
   </div>
-  <%= f.submit "save" %>
+  <%= f.submit "Save" %>
   <%= f.submit "Add Group",id:"addGroup" %>
   
 <% end %>
