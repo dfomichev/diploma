@@ -1,25 +1,20 @@
 class AttributeSetController < ApplicationController
   require 'securerandom'
+  attr_accessor :attributes,:name,:list
+
   def show
-    @group_id='6453af5464616e28b3120000'
-    @attribute_types=["text","number","category"]
-    attributes=Attributes.find(params[:group_id])
-    @name=attributes.read_attribute(:name)
-    @list=attributes.read_attribute(:list)
+   init
+   set_data
   end
   
   def edit
-    @group_id='6453af5464616e28b3120000'
-    @attribute_types=["text","number","category"]
-    @categories=["default"]
-    @page_title='Test'    
-  #  attributes=Attributes.find(@group_id)
-#    @name=attributes.read_attribute(:name)
- #   @list=attributes.read_attribute(:list)    
+   init
+   set_data
+   @attribute_types=['video','text','number','file']
   end
 
   def save
-
+    init	
     attr_set={}
     attr_set[:name]=params[:name]
     attr_set[:list]={}
@@ -38,20 +33,28 @@ class AttributeSetController < ApplicationController
       
     end
     
-    if params.has_key?(:attr_set_id)
-      attributes=Attributes.find("params[:attr_set_id]")
-    else
-      attributes=nil
-    end  
-    
-    if !attributes
-      attributes=Attributes.new
-      @group_id=attributes.id
-    
-    end
-      attributes.update_attribute(:name,attr_set[:name] )
-      attributes.update_attribute(:list,attr_set[:list])
-      attributes.save
-    self.show
+      @attributes.update_attribute(:name,attr_set[:name] )
+      @attributes.update_attribute(:list,attr_set[:list])
+      @attributes.save
   end
+  
+  private 
+
+  def set_data
+   @name=@attributes.name	
+   @list=@attributes.list
+  end
+
+  def init
+    if params.has_key?('id')
+      @attributes=Attributes.find(params['id'])
+    else
+      @attributes=nil
+    end	
+    if !attributes
+      @attributes=Attributes.new
+    end
+    @group_id=attributes.id
+  end
+
 end

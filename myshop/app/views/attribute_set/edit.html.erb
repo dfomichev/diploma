@@ -51,9 +51,41 @@ $(function() {
 
 
 <%= form_for :attr, url: {action: "save"} do |f| %>
-  <input type="text" name="name" value="" /><input type="hidden" name="attr_set_id" value="" />
+  <input type="text" name="name" value="<%= @name %>" /><input type="hidden" name="attr_set_id" value="" />
   <BR>
   <div id="p_groups">
+	<% gc=0 %>
+	<% @list.each_with_index do |(k,v),gc| %>
+	<% eo=gc.even? ? 'even':'odd' %>
+	<span>
+	<div class="attribute_group <%= eo %>" counter="<%= gc %>"> 
+		<input type="text" name="group[<%= gc %>][order]" value="<%= v['order'] %>" />
+		 <input type="text" name="group[<%= gc %>_][name]" value="<%= k %>" />
+		 <a href="#" id="remGroup">Remove Group</a>
+		<div counter=0>
+		  <br>
+		  <input type="submit" id="addAttribute" value="Add"></div>
+		  <div id="p_attributes">
+		  <p>	
+		        <% v["attributes"].each_with_index do |(a,b),ac| %>
+			<input type="text" name="param[<%= gc %>][<%= ac %>][order]" value="<%= b['order'] %>" />		
+			<input type="text" name="param[<%= gc %>][<%= ac %>][name]" value="<%= a %>" />		
+			<select name="param[<%= gc %>][<%= ac %>][type]">
+			<% @attribute_types.each do |t| %>
+			<% selected=t==b['type']?'selected':'' %>	
+			<option <%= selected %> >
+			<%= t %>
+			</option>
+			<% end %>
+			</select> 
+
+			<%end %>
+		  </p>
+		  </div>
+	</div>
+	</span>
+	<% end %>
+  
   </div>
   <%= f.submit "save" %>
   <%= f.submit "Add Group",id:"addGroup" %>
