@@ -11,7 +11,7 @@ $(document).ready(function() {
         });
 
         $("#addCNode").click(function () {
-                $("#tree").jstree("create");
+                $("#tree").jstree("create",null,false,{ attr: { rel : "folder" }, data: "Some other child node" });
         });
 
         $("#addPNode").click(function () {
