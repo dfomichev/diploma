@@ -1,7 +1,14 @@
 <script type="text/javascript">
+function rand(length,current){
+ current = current ? current : '';
+ return length ? rand( --length , "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz".charAt( Math.floor( Math.random() * 60 ) ) + current ) : current;
+}
+
+
 $(document).ready(function() {
     $(function () {
 
+	
         $("#tree").click(function () {
 	  if ( $("#tree").jstree("get_selected").attr("blocked" )){
 		$("#delNode").attr('disabled', 'disabled');		
@@ -11,11 +18,11 @@ $(document).ready(function() {
         });
 
         $("#addCNode").click(function () {
-                $("#tree").jstree("create",null,false,{ attr: { is_new : "true" }, data: "Some other child node" });
+                $("#tree").jstree("create",null,false,{ attr: { _cid : rand(16),is_new: "true" }, data: "Some other child node" });
         });
 
         $("#addPNode").click(function () {
-                $("#tree").jstree("create",-1,"first",{ attr: { is_new : "true" }, data: "Some other 1-st level node" });
+                $("#tree").jstree("create",-1,"first",{ attr: { _cid : rand(16) ,is_new: "true"}, data: "Some other 1-st level node" });
         });
 
         $("#renNode").click(function () {
@@ -23,24 +30,20 @@ $(document).ready(function() {
         });
 
         $("#delNode").click(function () {
-              //  $("#tree").jstree("remove");
-
-	   //$("#tree").jstree("get_selected").style.display="none";
 	   $("#tree").jstree("get_selected").hide();
 	   $("#tree").jstree("get_selected").attr("is_deleted","true");
         });
 
         $("#saveTree").click(function () {
 		
-              list=$("#tree").jstree("get_json",-1,["is_new","is_deleted","cid"]);
-		alert(JSON.stringify(list));
+              list=$("#tree").jstree("get_json",-1,["is_deleted","_cid","is_new"]);
+	             $("#json").append((JSON.stringify(list)));
 	 	
         });
 
         $("#tree").jstree({
                 "dnd" : {
                         "drop_finish" : function () {
-                                alert("DROP");
                         },
                         "drag_check" : function (data) {
                                 if(data.r.attr("id") == "phtml_1") {
@@ -53,7 +56,6 @@ $(document).ready(function() {
                                 };
                         },
                         "drag_finish" : function (data) {
-                                alert("DRAG OK");
                         }
                 },
 		"ui" : {
@@ -79,17 +81,10 @@ $(document).ready(function() {
 
 </div>
 <div id="tree" >
-<ul>
-   <li cid="cid1" is_new="true" class="jstree-open jstree-last" style="">
-      <ins class="jstree-icon">&nbsp;</ins><a href="#" class="jstree-clicked"><ins class="jstree-icon">&nbsp;</ins>Some other 1-st level node</a>
-      <ul>
-         <li cid="cid2" is_new="true" class="jstree-leaf" style=""><ins class="jstree-icon">&nbsp;</ins><a href="#" class=""><ins class="jstree-icon">&nbsp;</ins>Some other child node</a></li>
-         <li cid="cid3" is_new="true" class="jstree-leaf jstree-last" style=""><ins class="jstree-icon">&nbsp;</ins><a href="#" class=""><ins class="jstree-icon">&nbsp;</ins>Some other child node</a></li>
-      </ul>
-   </li>
-</ul>
 </div>
 
+<div id="json">
+</div>
 </body>
 </html>
 
