@@ -39,6 +39,12 @@ class AttributeSetController < ApplicationController
     set_data
     render "show"
   end
+
+  def json
+    init
+    set_data
+    render text: @list.to_json
+  end
   
   private 
 

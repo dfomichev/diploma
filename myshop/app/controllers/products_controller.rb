@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
    set_data
    @attribute_types=['video','text','number','file']
   end
-
+  
   def save
     init	
     attr_set={}

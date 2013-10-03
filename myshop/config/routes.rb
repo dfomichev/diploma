@@ -1,5 +1,4 @@
 Myshop::Application.routes.draw do
-#  get "attribute_set/save"
   get "products/edit"
   get "products/create"
   post "products/create"
@@ -10,6 +9,7 @@ Myshop::Application.routes.draw do
   resources :attribute_set do
 	post "save",on: :member 
 	get "edit", on: :member 
+	post "json", on: :member 
   end
 
 end
