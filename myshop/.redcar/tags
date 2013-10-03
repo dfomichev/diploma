@@ -1,22 +1,34 @@
-1380359984
-Application	/home/danil/project/myshop/config/application.rb	  class Application 
-ApplicationController	/home/danil/project/myshop/app/controllers/application_controller.rb	class ApplicationController 
-ApplicationHelper	/home/danil/project/myshop/app/helpers/application_helper.rb	module ApplicationHelper
-AttributeSetController	/home/danil/project/myshop/app/controllers/attribute_set_controller.rb	class AttributeSetController 
-AttributeSetControllerTest	/home/danil/project/myshop/test/controllers/attribute_set_controller_test.rb	class AttributeSetControllerTest 
-AttributeSetHelper	/home/danil/project/myshop/app/helpers/attribute_set_helper.rb	module AttributeSetHelper
-AttributeSetHelperTest	/home/danil/project/myshop/test/helpers/attribute_set_helper_test.rb	class AttributeSetHelperTest 
-Attributes	/home/danil/project/myshop/app/models/attributes.rb	class Attributes
-Myshop	/home/danil/project/myshop/config/application.rb	module Myshop
-ProductsController	/home/danil/project/myshop/app/controllers/products_controller.rb	class ProductsController 
-ProductsControllerTest	/home/danil/project/myshop/test/controllers/products_controller_test.rb	class ProductsControllerTest 
-ProductsHelper	/home/danil/project/myshop/app/helpers/products_helper.rb	module ProductsHelper
-ProductsHelperTest	/home/danil/project/myshop/test/helpers/products_helper_test.rb	class ProductsHelperTest 
-TestCase	/home/danil/project/myshop/test/test_helper.rb	class ActiveSupport::TestCase
-create	/home/danil/project/myshop/app/controllers/products_controller.rb	  def create
-edit	/home/danil/project/myshop/app/controllers/attribute_set_controller.rb	  def edit
-link_to_add_fields	/home/danil/project/myshop/app/helpers/application_helper.rb	def link_to_add_fields(name, f, association)
-link_to_remove_fields	/home/danil/project/myshop/app/helpers/application_helper.rb	  def link_to_remove_fields(name, f)
-new	/home/danil/project/myshop/app/controllers/products_controller.rb	  def new
-save	/home/danil/project/myshop/app/controllers/attribute_set_controller.rb	  def save
-show	/home/danil/project/myshop/app/controllers/attribute_set_controller.rb	  def show
+1380805496
+Application	/home/danil/project/diploma/myshop/config/application.rb	  class Application 
+ApplicationController	/home/danil/project/diploma/myshop/app/controllers/application_controller.rb	class ApplicationController 
+ApplicationHelper	/home/danil/project/diploma/myshop/app/helpers/application_helper.rb	module ApplicationHelper
+AttributeSetController	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	class AttributeSetController 
+AttributeSetControllerTest	/home/danil/project/diploma/myshop/test/controllers/attribute_set_controller_test.rb	class AttributeSetControllerTest 
+AttributeSetHelper	/home/danil/project/diploma/myshop/app/helpers/attribute_set_helper.rb	module AttributeSetHelper
+AttributeSetHelperTest	/home/danil/project/diploma/myshop/test/helpers/attribute_set_helper_test.rb	class AttributeSetHelperTest 
+Attributes	/home/danil/project/diploma/myshop/app/models/attributes.rb	class Attributes
+Myshop	/home/danil/project/diploma/myshop/config/application.rb	module Myshop
+Products	/home/danil/project/diploma/myshop/app/models/products.rb	class Products
+ProductsController	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	class ProductsController 
+ProductsControllerTest	/home/danil/project/diploma/myshop/test/controllers/products_controller_test.rb	class ProductsControllerTest 
+ProductsHelper	/home/danil/project/diploma/myshop/app/helpers/products_helper.rb	module ProductsHelper
+ProductsHelperTest	/home/danil/project/diploma/myshop/test/helpers/products_helper_test.rb	class ProductsHelperTest 
+TestCase	/home/danil/project/diploma/myshop/test/test_helper.rb	class ActiveSupport::TestCase
+attributes	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  attr_accessor :attributes,:name,:list
+edit	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def edit
+edit	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def edit
+init	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def init
+init	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def init
+link_to_add_fields	/home/danil/project/diploma/myshop/app/helpers/application_helper.rb	def link_to_add_fields(name, f, association)
+link_to_remove_fields	/home/danil/project/diploma/myshop/app/helpers/application_helper.rb	  def link_to_remove_fields(name, f)
+list	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  attr_accessor :attributes,:name,:list
+list	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  attr_accessor :products,:name,:list
+name	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  attr_accessor :attributes,:name,:list
+name	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  attr_accessor :products,:name,:list
+products	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  attr_accessor :products,:name,:list
+save	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def save
+save	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def save
+set_data	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def set_data
+set_data	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def set_data
+show	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def show
+show	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def show

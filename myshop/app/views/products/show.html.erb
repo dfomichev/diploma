@@ -1,0 +1,12 @@
+<p><%= @name %></p>
+<% @list.each do |k,v| %>
+<div>
+      <p><%= k %>&nbsp;<%= v['tag'] %></p>
+	<% v['attributes'].each do |a,b| %>
+		<p><%= a %>
+		<%= b['type'] %>
+		<%= b['tag'] %>
+		</p>
+	<% end %>
+</div>
+<% end %>

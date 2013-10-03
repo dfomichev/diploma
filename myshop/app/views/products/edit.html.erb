@@ -1,0 +1,92 @@
+<%= javascript_tag do %>
+$(function() {
+  
+        var k = $('#p_groups span').length;
+        
+    
+        $(document).on('click','#addAttribute', function() {
+          
+         var i = $(this).parents("div[class^='attribute_group']").children().filter(":last").attr("counter");
+         i = parseInt(i)+1;
+         var g_num=$(this).parents("div[class^='attribute_group']").attr("counter");
+          
+          var str = '<%= render 'attribute_fields' %>';
+          str=str.replace(/_cnt_/g,i);
+          str=str.replace(/_gnum_/g,g_num);
+          str=str.replace(/_ord_/g,i*10);
+          $(this).parents("div[class^='attribute_group']").append(str);
+                i++;
+                return false;
+        });
+        $(document).on('click','#addGroup', function() {
+          var str = '<%= render :partial => 'group_fields' %>';
+          str=str.replace(/_cnt_/g,k);
+          str=str.replace(/_ord_/g,(k+1)*10);
+        
+          $(str).appendTo('#p_groups');
+                k++;
+               $('.attribute_group').each(function(index)
+                {
+                  $(this).addClass(index % 2 ? 'odd' : 'even');
+                });          
+
+                return false;
+        });
+        
+        
+        $(document).on('click','#remElemet', function() { 
+          if ($('#attr_list p').length>1){
+            $(this).parents('p').remove();
+          };
+                return false;
+        });
+        $(document).on('click','#remGroup', function() {
+          if ($('#p_groups span').length>1){
+            $(this).parents('span').remove();
+          };
+                return false;
+        });
+        
+});
+<% end %>
+
+
+<%= form_for :attr, url: {action: "save", id: @group_id } do |f| %>
+  <input type="text" name="name" value="<%= @name %>" /><input type="hidden" name="attr_set_id" value="" />
+  <BR>
+  <div id="p_groups">
+	<% gc=0 %>
+	<% @list.each_with_index do |(k,v),gc| %>
+	<% eo=gc.even? ? 'even':'odd' %>
+	<span>
+	<div id="attr_list" class="attribute_group <%= eo %>" counter="<%= gc %>"> 
+		<input type="text" name="group[<%= gc %>][order]" value="<%= gc*10 %>" />
+		 <input type="text" name="group[<%= gc %>][name]" value="<%= k %>" />
+		<input type="text" name="group[<%= gc %>][tag]" value="<%= v['tag'] %>" />
+		 <a href="#" id="remGroup">Remove Group</a>
+		  <br>
+		  <input type="submit" id="addAttribute" value="Add">
+		        <% v["attributes"].each_with_index do |(a,b),ac| %>
+			<p counter=<%= ac %>>
+			<input type="text" name="param[<%= gc %>][<%= ac %>][order]" value="<%= ac*10  %>" />		
+			<input type="text" name="param[<%= gc %>][<%= ac %>][name]" value="<%= a %>" />		
+			<input type="text" name="param[<%= gc %>][<%= ac %>][tag]" value="<%= b['tag'] %>" />		
+			<select name="param[<%= gc %>][<%= ac %>][type]">
+			<% @attribute_types.each do |t| %>
+			<% selected=t==b['type']?'selected':'' %>	
+			<option <%= selected %> ><%= t %></option>
+			<% end %>
+			</select> 
+			<a href="#" id="remElemet">Remove</a>
+			</p>
+			<%end %>
+	</div>
+	</span>
+	<% end %>
+  
+  </div>
+  <%= f.submit "Save" %>
+  <%= f.submit "Add Group",id:"addGroup" %>
+  
+<% end %>
+
