@@ -1,0 +1,61 @@
+<script type="text/javascript">
+$(document).ready(function() {
+    $(function () {
+        $("#addCNode").click(function () {
+                $("#tree").jstree("create");
+        });
+
+        $("#addPNode").click(function () {
+                $("#tree").jstree("create",-1,"first","Enter a new name");
+        });
+
+        $("#renNode").click(function () {
+                $("#tree").jstree("rename");
+        });
+
+        $("#delNode").click(function () {
+                $("#tree").jstree("remove");
+        });
+        $("#tree").jstree({
+                "dnd" : {
+                        "drop_finish" : function () {
+                                alert("DROP");
+                        },
+                        "drag_check" : function (data) {
+                                if(data.r.attr("id") == "phtml_1") {
+                                        return false;
+                                }
+                                return {
+                                        after : false,
+                                        before : false,
+                                        inside : true
+                                };
+                        },
+                        "drag_finish" : function (data) {
+                                alert("DRAG OK");
+                        }
+                },
+                "plugins" : [ "themes", "html_data", "ui", "crrm","dnd" ]
+        });
+
+
+    });
+});
+</script>
+<body>
+
+
+<div>
+<input type="button" class="button" value="Add Node" id="addPNode">
+<input type="button" class="button" value="Add Child Node" id="addCNode">
+<input type="button" class="button" value="Rename" id="renNode">
+<input type="button" class="button" value="Delete" id="delNode">
+
+</div>
+
+<div id="tree" >
+</div>
+
+</body>
+</html>
+

@@ -1,4 +1,7 @@
 Myshop::Application.routes.draw do
+  get "categories/edit"
+  get "categories/save"
+  get "categories/show"
   get "products/edit"
   get "products/create"
   post "products/create"
