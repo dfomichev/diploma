@@ -1,6 +1,15 @@
 <script type="text/javascript">
 $(document).ready(function() {
     $(function () {
+
+        $("#tree").click(function () {
+	  if ( $("#tree").jstree("get_selected").attr("blocked" )){
+		$("#delNode").attr('disabled', 'disabled');		
+	  }else{
+		$("#delNode").removeAttr('disabled');
+	  }
+        });
+
         $("#addCNode").click(function () {
                 $("#tree").jstree("create");
         });
@@ -35,6 +44,10 @@ $(document).ready(function() {
                                 alert("DRAG OK");
                         }
                 },
+		"ui" : {
+			"select_limit" : 1,
+			"initially_select" : [ "asda" ]
+		},
                 "plugins" : [ "themes", "html_data", "ui", "crrm","dnd" ]
         });
 
@@ -49,11 +62,14 @@ $(document).ready(function() {
 <input type="button" class="button" value="Add Node" id="addPNode">
 <input type="button" class="button" value="Add Child Node" id="addCNode">
 <input type="button" class="button" value="Rename" id="renNode">
-<input type="button" class="button" value="Delete" id="delNode">
+<input type="button" class="button" value="Delete" id="delNode" disabled="">
 
 </div>
-
 <div id="tree" >
+<ul>
+<li class="jstree-open" blocked="1"  style=""><ins class="jstree-icon">&nbsp;</ins>
+<a href="#" class="jstree-clicked"><ins class="jstree-icon">&nbsp;</ins>Enter a new name</a><ul>
+</ul>
 </div>
 
 </body>
