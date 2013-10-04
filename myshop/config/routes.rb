@@ -14,5 +14,5 @@ Myshop::Application.routes.draw do
 	get "edit", on: :member 
 	post "json", on: :member 
   end
-
+  post "categories/save"
 end

@@ -35,10 +35,11 @@ $(document).ready(function() {
         });
 
         $("#saveTree").click(function () {
+        	_json=$("#tree").jstree("get_json",-1,["is_deleted","_cid","is_new"]);
+		$.post( "/categories/save",{ json : _json}).done(function( data ) {
+			    $("#json").append( data );
+		});
 		
-              list=$("#tree").jstree("get_json",-1,["is_deleted","_cid","is_new"]);
-	             $("#json").append((JSON.stringify(list)));
-	 	
         });
 
         $("#tree").jstree({
