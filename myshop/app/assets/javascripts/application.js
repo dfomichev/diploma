@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require jstree
 //= require_tree .
+//= require categories

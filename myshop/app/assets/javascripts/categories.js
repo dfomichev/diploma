@@ -1,4 +1,3 @@
-<script type="text/javascript">
 function rand(length,current){
  current = current ? current : '';
  return length ? rand( --length , "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz".charAt( Math.floor( Math.random() * 60 ) ) + current ) : current;
@@ -8,13 +7,13 @@ function rand(length,current){
 $(document).ready(function() {
     $(function () {
 
-	
+
         $("#tree").click(function () {
-	  if ( $("#tree").jstree("get_selected").attr("blocked" )){
-		$("#delNode").attr('disabled', 'disabled');		
-	  }else{
-		$("#delNode").removeAttr('disabled');
-	  }
+          if ( $("#tree").jstree("get_selected").attr("blocked" )){
+                $("#delNode").attr('disabled', 'disabled');
+          }else{
+                $("#delNode").removeAttr('disabled');
+          }
         });
 
         $("#addCNode").click(function () {
@@ -30,22 +29,21 @@ $(document).ready(function() {
         });
 
         $("#delNode").click(function () {
-	   $("#tree").jstree("get_selected").hide();
-	   $("#tree").jstree("get_selected").attr("is_deleted","true");
+           $("#tree").jstree("get_selected").hide();
+           $("#tree").jstree("get_selected").attr("is_deleted","true");
         });
 
         $("#saveTree").click(function () {
-        	_json=$("#tree").jstree("get_json",-1,["is_deleted","_cid","is_new"]);
-		$.post( "/categories/save",{ json : _json}).done(function( data ) {
-			    $("#json").append( data );
-		});
-		
-        });
+                _json=$("#tree").jstree("get_json",-1,["is_deleted","_cid","is_new"]);
+                $.post( "/categories/save",{ json : _json}).done(function( data ) {
+                            $("#json").append(data);
+                });
 
-        $("#tree").jstree({
+        });
+	$("#tree").jstree({
 		"json_data" : {
-			"data" : [{ "data" : "A node", "metadata" : { id : 23 },	"children" : [ "Child 1", "A Child 2" ]	}]
-		},		
+				"data" : [{ "data" : "A node"	}]
+		},			  
                 "dnd" : {
                         "drop_finish" : function () {
                         },
@@ -62,33 +60,15 @@ $(document).ready(function() {
                         "drag_finish" : function (data) {
                         }
                 },
-		"ui" : {
-			"select_limit" : 1,
-			"initially_select" : [ "asda" ]
-		},
-                "plugins" : [ "themes", "html_data", "ui", "crrm","dnd","json_data" ]
-        });
-
+                "ui" : {
+                        "select_limit" : 1,
+                        "initially_select" : [ "asda" ]
+                },
+                "plugins" : [ "themes", "ui", "crrm","dnd","json_data" ]
+        }).bind("select_node.jstree", function (NODE, REF_NODE) {
+            var a = $.jstree._focused().get_selected();
+	});
 
     });
 });
-</script>
-<body>
-
-
-<div>
-<input type="button" class="button" value="Add Node" id="addPNode">
-<input type="button" class="button" value="Add Child Node" id="addCNode">
-<input type="button" class="button" value="Rename" id="renNode">
-<input type="button" class="button" value="Delete" id="delNode" disabled="">
-<input type="button" class="button" value="Save" id="saveTree">
-
-</div>
-<div id="tree" >
-</div>
-
-<div id="json">
-</div>
-</body>
-</html>
 
