@@ -37,13 +37,14 @@ class CategoriesController < ApplicationController
       if a.kind_of?(Hash)        
         is_deleted=a['attr'].has_key?('is_deleted')?'true':'false'
         is_new=a['attr'].has_key?('is_new')?'true':'false'
-        path=path+','+a["data"]
+        path=path+' / '+a["data"]
         h.push( {:id=>a["attr"]["_cid"],:name=>a["data"],:pid=>cid,:delete=>is_deleted,:new=>is_new,:path=>path }) 
         if a.has_key?("children")
            c=json_to_tree(a["children"].values,a["attr"]["_cid"],path)
            h.concat(c)
         end
       end
+      path=''
     end
   	return h
   end
