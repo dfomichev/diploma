@@ -15,4 +15,5 @@ Myshop::Application.routes.draw do
 	post "json", on: :member 
   end
   post "categories/save"
+  get "categories/json"
 end

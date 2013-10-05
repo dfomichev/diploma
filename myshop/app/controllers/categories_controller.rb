@@ -22,6 +22,9 @@ class CategoriesController < ApplicationController
 
 	@json=tree_to_json(Categories.where(pid: "null"))
   end
+  def json
+	render text: '[	{ "data" : "A node", "children" : [ { "data" : "Only child", "state" : "closed" } ], "state" : "open" },	"Ajax node"]'
+  end
   private
   def json_to_tree(obj=self,cid="null",h=Array.new)
         obj.each do |a|

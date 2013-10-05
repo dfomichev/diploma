@@ -42,8 +42,8 @@ $(document).ready(function() {
         });
 	$("#tree").jstree({
 		"json_data" : {
-				"data" : [{ "data" : "A node"	}]
-		},			  
+			"ajax" : {"url" : "/categories/json"}
+		},
                 "dnd" : {
                         "drop_finish" : function () {
                         },
