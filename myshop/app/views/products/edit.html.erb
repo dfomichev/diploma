@@ -2,23 +2,23 @@
 <%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
   <%= render("base_set") %>   
   <br>
-  <select name="asdad" attr1='attr'>
+  <select>
   <% @categories.each do |v| %>  
     <option cid="<%= v[:id] %>"><%= v[:path] %></option>
   <% end %>
   <%= f.submit "Add",id:"addCat" %>
   </select>
   <br>
-  <select name="attribute_set">
-    <% @attributes.each do |v| %>
-    <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
-    <% end %>
-  </select>
+  <div id="extAttrTab">
+      <select name="attribute_set">
+        <% @attributes.each do |v| %>
+        <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
+        <% end %>
+      </select>
 
-  <%= f.submit "Add",id:"addSet" %>
-  <div id="set">
+      <%= f.submit "Add",id:"addSet" %>
+      <div id="extAttrList"></div>
   </div>
-
   <%= f.submit "Save",id:"Save" %>
 <% end %>
 

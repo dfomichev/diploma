@@ -12,7 +12,7 @@
                   var type;
                   var name=a;
                   var tag=v['tag'];
-                  $('#set').append('<p class="set_name">'+name+'</p>');
+                  $('#extAttrList').append('<p class="set_name">'+name+'</p>');
                   var list=v['attributes'];
                   $.each(list,function(n,l) {
                       var str=tmp;
@@ -22,7 +22,7 @@
                       str=str.replace(/_name_/g,name);
                       str=str.replace(/_type_/g,type);
                       str=str.replace(/_tag_/g,tag);
-                      $('#set').append(str);
+                      $('#extAttrList').append(str);
 
                   });
 
