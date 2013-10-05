@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   require 'securerandom'
-  attr_accessor :products,:name,:list
+  attr_accessor :products,:name,:list, :categories
 
   def show
    init
@@ -45,6 +45,8 @@ class ProductsController < ApplicationController
   def set_data
     @name=''
     @list={}
+    @categories=Categories.all.to_a
+    @attributes=Attributes.all.to_a
     if @products.respond_to?:name
      @name=@products.name	
      @list=@products.list

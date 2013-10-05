@@ -38,9 +38,19 @@ $(function() {
 <%= form_for :attr, url: {action: "save", id: @group_id } do |f| %>
   <input type="text" name="name" value="<%= @name %>" /><input type="hidden" name="attr_set_id" value="" />
   <BR>
-  <select name="param[attribute_set]">
-    <option set_id="a9b57479756275293b250000">asda</option>
+  <select name="">
+  <% @categories.each do |v| %>  
+    <option cid="<%= v[:id] %>"><%= v[:path] %></option>
+  <% end %>
+  <%= f.submit "Add",id:"addCat" %>
   </select>
+  <br>
+  <select name="param[attribute_set]">
+    <% @attributes.each do |v| %>
+    <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
+    <% end %>
+  </select>
+
   <%= f.submit "Add",id:"addSet" %>
   <div id="set">
   </div>
