@@ -1,0 +1,34 @@
+<script>
+    $("#Save").click(function () {
+            return false;
+      });
+
+      $(document).on('click','#addSet', function() {
+        var hash=$.post("/attribute_set/a9b57479756275293b250000/json",{sid:"sid"},
+          function( data ) {
+            $.each(data,function(a,v) {
+                  var tmp='<%= render("attribute_fields") %>';
+                  var str;
+                  var type;
+                  var name=a;
+                  var tag=v['tag'];
+                  $('#set').append('<p class="set_name">'+name+'</p>');
+                  var list=v['attributes'];
+                  $.each(list,function(n,l) {
+                      var str=tmp;
+                      name=n;
+                      tag=l['tag'];
+                      type=l['type'];
+                      str=str.replace(/_name_/g,name);
+                      str=str.replace(/_type_/g,type);
+                      str=str.replace(/_tag_/g,tag);
+                      $('#set').append(str);
+
+                  });
+
+            });
+
+          },"json") ;
+          return false;
+        });
+</script>
