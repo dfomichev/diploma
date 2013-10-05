@@ -1,23 +1,26 @@
 class CategoriesController < ApplicationController
-
+    
   def save
  	
 	tree= json_to_tree(params[:json].values)
+    
   	tree.each do |v|
-  		if v[:delete]=="true" 
-        if v[:new]=="false" 
-          Categories.find(v[:id]).delete
-        end  
+  	  if v[:delete]=="true" 
+            if v[:new]=="false" 
+              Categories.find(v[:id]).delete
+            end  
       else
     		if !(@categories=Categories.find(v[:id]))
-      		@categories=Categories.new
+      	    	@categories=Categories.new
     		end
     		@categories.update_attribute(:id,v[:id] )
-  	  	@categories.update_attribute(:name,v[:name] )
-  		  @categories.update_attribute(:pid,v[:pid])
-    	  @categories.save
+      	  	@categories.update_attribute(:name,v[:name] )
+  	    	@categories.update_attribute(:pid,v[:pid])
+  	    	@categories.update_attribute(:path,v[:path])
+        	@categories.save
+              
       end
-	  end
+	end
     render text: 'done'
   end
 
@@ -29,21 +32,22 @@ class CategoriesController < ApplicationController
   end
   
   private
-  def json_to_tree(obj=self,cid="null",h=Array.new)
+  def json_to_tree(obj=self,cid="null",path=String.new,h=Array.new)
     obj.each do |a|
       if a.kind_of?(Hash)        
         is_deleted=a['attr'].has_key?('is_deleted')?'true':'false'
         is_new=a['attr'].has_key?('is_new')?'true':'false'
-        h.push( {:id=>a["attr"]["_cid"],:name=>a["data"],:pid=>cid,:delete=>is_deleted,:new=>is_new})
+        path=path+','+a["data"]
+        h.push( {:id=>a["attr"]["_cid"],:name=>a["data"],:pid=>cid,:delete=>is_deleted,:new=>is_new,:path=>path }) 
         if a.has_key?("children")
-           c=json_to_tree(a["children"].values,a["attr"]["_cid"])
+           c=json_to_tree(a["children"].values,a["attr"]["_cid"],path)
            h.concat(c)
         end
       end
     end
   	return h
   end
-  
+
   def tree_to_json(obj=self,h={},a=Array.new)
   	obj.each do |v|
     	children=tree_to_json(Categories.where(pid: v.id))
