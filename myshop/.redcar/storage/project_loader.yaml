@@ -6,3 +6,5 @@ open_files:
   - app/models/attributes.rb
   - app/views/products/edit.html.erb
   - app/controllers/application_controller.rb
+  - app/views/products/_attribute_fields.html.erb
+  - app/views/products/_attribute_set_name.html.erb

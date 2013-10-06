@@ -1,11 +1,11 @@
 <p counter="_cnt_">\
-<input type="text" name="param[_gnum_][_cnt_][order]" value="_ord_" />\
-<input type="text" name="param[_gnum_][_cnt_][name]" value="" />\
-<input type="text" name="param[_gnum_][_cnt_][tag]" value="" />\
+<input type="text" name="param[_gnum_][_cnt_][name]" value="_name_" />\
+<input type="text" name="param[_gnum_][_cnt_][type]" value="_type_" />\
+<input type="text" name="param[_gnum_][_cnt_][tag]" value="_tag_" />\
 <select name="param[_gnum_][_cnt_][type]">\
-<% @attribute_types.each do |t| %>
+<% @attribute_types.each do |t| %>\
 <option><%= t %></option>\
-<% end %>
-</select> \
+<% end %>\
+</select>\
 <a href="#" id="remElemet">Remove</a>\
-</p>\
+</p>

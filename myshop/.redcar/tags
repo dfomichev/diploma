@@ -1,4 +1,4 @@
-1380813397
+1381039395
 Application	/home/danil/project/diploma/myshop/config/application.rb	  class Application 
 ApplicationController	/home/danil/project/diploma/myshop/app/controllers/application_controller.rb	class ApplicationController 
 ApplicationHelper	/home/danil/project/diploma/myshop/app/helpers/application_helper.rb	module ApplicationHelper
