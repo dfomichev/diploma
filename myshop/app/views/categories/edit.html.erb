@@ -11,11 +11,11 @@ $(document).ready(function() {
         });
 
         $("#addCNode").click(function () {
-                $("#tree").jstree("create",null,false,{ attr: { rel : "folder" }, data: "Some other child node" });
+                $("#tree").jstree("create",null,false,{ attr: { is_new : "true" }, data: "Some other child node" });
         });
 
         $("#addPNode").click(function () {
-                $("#tree").jstree("create",-1,"first","Enter a new name");
+                $("#tree").jstree("create",-1,"first",{ attr: { is_new : "true" }, data: "Some other 1-st level node" });
         });
 
         $("#renNode").click(function () {
@@ -23,8 +23,20 @@ $(document).ready(function() {
         });
 
         $("#delNode").click(function () {
-                $("#tree").jstree("remove");
+              //  $("#tree").jstree("remove");
+
+	   //$("#tree").jstree("get_selected").style.display="none";
+	   $("#tree").jstree("get_selected").hide();
+	   $("#tree").jstree("get_selected").attr("is_deleted","true");
         });
+
+        $("#saveTree").click(function () {
+		
+              list=$("#tree").jstree("get_json",-1,["is_new","is_deleted","cid"]);
+		alert(JSON.stringify(list));
+	 	
+        });
+
         $("#tree").jstree({
                 "dnd" : {
                         "drop_finish" : function () {
@@ -48,7 +60,7 @@ $(document).ready(function() {
 			"select_limit" : 1,
 			"initially_select" : [ "asda" ]
 		},
-                "plugins" : [ "themes", "html_data", "ui", "crrm","dnd" ]
+                "plugins" : [ "themes", "html_data", "ui", "crrm","dnd","json_data" ]
         });
 
 
@@ -63,11 +75,12 @@ $(document).ready(function() {
 <input type="button" class="button" value="Add Child Node" id="addCNode">
 <input type="button" class="button" value="Rename" id="renNode">
 <input type="button" class="button" value="Delete" id="delNode" disabled="">
+<input type="button" class="button" value="Save" id="saveTree">
 
 </div>
 <div id="tree" >
 <ul>
-<li class="jstree-open" blocked="1"  style=""><ins class="jstree-icon">&nbsp;</ins>
+<li class="jstree-open" cid="23a233adfdsf" blocked="1"  style=""><ins class="jstree-icon">&nbsp;</ins>
 <a href="#" class="jstree-clicked"><ins class="jstree-icon">&nbsp;</ins>Enter a new name</a><ul>
 </ul>
 </div>
