@@ -5,13 +5,9 @@ function rand(length,current){
 
 
 $(document).ready(function() {
+
+
     $(function () {
-
-        //$("#Save").click(function () {
-          //  return false;
-        //});
-
-
 
         $("#tree").click(function () {
           if ( $("#tree").jstree("get_selected").attr("blocked" )){

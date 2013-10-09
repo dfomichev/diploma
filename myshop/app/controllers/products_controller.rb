@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   require 'securerandom'
-  attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new
+  attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new, :product_id
 
   def show
    init
@@ -9,8 +9,6 @@ class ProductsController < ApplicationController
   
   def edit
    init
-   set_data
-   @attribute_types=['video','text','number','file']
   end
     
   def save
@@ -22,28 +20,19 @@ class ProductsController < ApplicationController
     init
     @products.update_attributes(product )
     @products.save
-     		
-    set_data
     render text: @products.id 
+  end
+
+  def file_upload  
+     tmp = params[:file_upload][:image].tempfile
+     require 'fileutils'
+     file = File.join("public", params[:file_upload][:image].original_filename)
+     FileUtils.cp tmp.path, file
+     render text: file
   end
   
   private 
 
-  def set_data
-    @categories=Categories.all.to_a
-    @attributes=Attributes.all.to_a
-    if @products.respond_to?:name
-      @name=@products.name
-      @sku=@products.sku
-      @price=@products.price
-      @extra_attributes=@products.extra_attributes
-    else
-       @name=''
-       @sku=''
-       @price=''
-       @extra_attributes={}
-    end
-  end
 
   def init
     if params.has_key?('id')
@@ -58,7 +47,22 @@ class ProductsController < ApplicationController
       @is_new=true
       
     end
-    @group_id=@products.id
+    @product_id=@products.id
+    @categories=Categories.all.to_a
+    @attributes=Attributes.all.to_a
+
+    if @products.respond_to?:name
+      @name=@products.name
+      @sku=@products.sku
+      @price=@products.price
+      @extra_attributes=@products.extra_attributes
+    else
+       @name=String.new
+       @sku=String.new
+       @price=String.new
+       @extra_attributes={}
+    end
+
   end
 
 end

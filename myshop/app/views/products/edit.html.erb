@@ -7,7 +7,6 @@
     <option cid="<%= v[:id] %>"><%= v[:path] %></option>
   <% end %>
   </select>
-  <br>
   <div id="extAttrTab">
       <% if !@is_new %>
           <% @products.extra_attributes.each do |k,v| %>
@@ -30,5 +29,16 @@
   </div>
   <%= f.submit "Save",id:"Save" %>
 <% end %>
-
+  <div id="imagesTab">
+    <%= form_for :file_upload, url: {action: "file_upload", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |f| %>
+         <%= f.file_field :image %>
+        <%= f.submit "Upload",id:"upload" %>
+    <% end %>
+    <br><br>
+    <div id="images">
+     </div>
+ </div>
 <div id="result"></div>
+
+
+

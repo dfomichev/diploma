@@ -1,4 +1,18 @@
 <script>
+
+
+    
+
+       $('#uplForm').ajaxForm({
+                            type: "POST",
+                            url: "/products/<%= params[:id]  %>/file_upload",
+                            error: function(data ) { alert(data); },
+                            success: function(data){
+                                $("#images").html(data);
+                            }
+                        });
+
+
     $(document).on('click','#Save', function() {
          $.ajax({
                            type: "POST",
@@ -50,4 +64,6 @@
           },"json") ;
           return false;
         });
+         
+
 </script>

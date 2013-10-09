@@ -16,3 +16,4 @@
 //= require_tree .
 //= require categories
 //= require jquery.jstree/jquery.jstree
+//= require  jquery.form
