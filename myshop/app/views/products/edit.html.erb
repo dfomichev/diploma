@@ -10,7 +10,7 @@
   </select>
   <br>
   <div id="extAttrTab">
-      <select name="attribute_set">
+      <select id="attrSet" name="attr_set">
         <% @attributes.each do |v| %>
         <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
         <% end %>
@@ -22,3 +22,4 @@
   <%= f.submit "Save",id:"Save" %>
 <% end %>
 
+<div id="result"></div>

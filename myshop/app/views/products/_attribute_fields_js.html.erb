@@ -1,22 +1,34 @@
 <script>
-    $("#Save").click(function () {
+    $(document).on('click','#Save', function() {
+         $.ajax({
+                           type: "POST",
+                            data : $('form#product').serialize(),
+                            cache: false,
+                            url: "/products/<%= params[:id]  %>/save",
+                            success: function(data){
+                                $("#result").html(data);
+                            }
+                        });
+
             return false;
-      });
+
+     });
 
       $(document).on('click','#addSet', function() {
-        var hash=$.post("/attribute_set/a9b57479756275293b250000/json",{sid:"sid"},
+        var set_id=$('#attrSet').find(":selected").attr('set_id');
+        var hash=$.post("/attribute_set/"+set_id+"/json",{sid:"sid"},
           function( data ) {
             var gc=0;
             $.each(data,function(a,v) {
                   gc++;
                   var tmp='<%= render("attribute_fields") %>';
-                  var str;
+                  var str='';
                   var value='';
                   var type;
-                  var name=a;
+                  var setname=a;
                   var tag=v['tag'];
                   var id=v['id'];
-                  str='<%= render("attribute_set_name") %>'.replace(/_gc_/g,gc).replace(/_name_/g,name);
+                  str='<%= render("attribute_set_name") %>'.replace(/_gc_/g,gc).replace(/_setname_/g,setname);
                   $('#extAttrList').append(str);
                   var list=v['attributes'];
                   var ac=0;
@@ -25,12 +37,10 @@
                       str=tmp;
                       name=n;
                       tag=l['tag'];
+                      str=str.replace(/_setname_/g,setname);
                       str=str.replace(/_name_/g,name);
-                      str=str.replace(/_id_/g,id);                      
                       str=str.replace(/_value_/g,value);
                       str=str.replace(/_tag_/g,tag);
-                      str=str.replace(/_ac_/g,ac);                      
-                      str=str.replace(/_gc_/g,gc);                      
                       $('#extAttrList').append(str);
 
                   });
