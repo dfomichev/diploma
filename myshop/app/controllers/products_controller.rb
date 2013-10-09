@@ -28,9 +28,9 @@ class ProductsController < ApplicationController
      require 'fileutils'
      of=params[:file_upload][:image].original_filename
      file = File.join("public/images", of[0] ,of)
-     FileUtils.mkdir_p File.expand_path(file)
+     FileUtils.mkdir_p File.dirname(file)
      FileUtils.cp tmp.path, file
-     render text: file
+     render text: File.dirname(file)
   end
   
   private 
