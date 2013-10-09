@@ -30,7 +30,7 @@
   <%= f.submit "Save",id:"Save" %>
 <% end %>
   <div id="imagesTab">
-    <%= form_for :file_upload, url: {action: "file_upload", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |f| %>
+    <%= form_for :file_upload, url: {action: "add_image", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |f| %>
          <%= f.file_field :image %>
         <%= f.submit "Upload",id:"upload" %>
     <% end %>

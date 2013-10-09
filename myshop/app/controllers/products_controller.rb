@@ -23,10 +23,12 @@ class ProductsController < ApplicationController
     render text: @products.id 
   end
 
-  def file_upload  
+  def add_image
      tmp = params[:file_upload][:image].tempfile
      require 'fileutils'
-     file = File.join("public", params[:file_upload][:image].original_filename)
+     of=params[:file_upload][:image].original_filename
+     file = File.join("public/images", of[0] ,of)
+     FileUtils.mkdir_p File.expand_path(file)
      FileUtils.cp tmp.path, file
      render text: file
   end

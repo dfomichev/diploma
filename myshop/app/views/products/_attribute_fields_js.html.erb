@@ -5,7 +5,7 @@
 
        $('#uplForm').ajaxForm({
                             type: "POST",
-                            url: "/products/<%= params[:id]  %>/file_upload",
+                            url: "/products/<%= params[:id]  %>/add_image",
                             error: function(data ) { alert(data); },
                             success: function(data){
                                 $("#images").html(data);
