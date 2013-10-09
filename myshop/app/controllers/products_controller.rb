@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   require 'securerandom'
-  attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories
+  attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new
 
   def show
    init
@@ -30,8 +30,6 @@ class ProductsController < ApplicationController
   private 
 
   def set_data
-    @name=''
-    @list={}
     @categories=Categories.all.to_a
     @attributes=Attributes.all.to_a
     if @products.respond_to?:name
@@ -39,18 +37,25 @@ class ProductsController < ApplicationController
       @sku=@products.sku
       @price=@products.price
       @extra_attributes=@products.extra_attributes
+    else
+       @name=''
+       @sku=''
+       @price=''
+       @extra_attributes={}
     end
   end
 
   def init
     if params.has_key?('id')
       @products=Products.find(params['id'])
+      @is_new=false
     else
       @products=nil
     end	
     if !@products
 
       @products=Products.new
+      @is_new=true
       
     end
     @group_id=@products.id
