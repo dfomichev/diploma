@@ -1,6 +1,4 @@
 class CategoriesController < ApplicationController
-  def edit
-  end
 
   def save
  	

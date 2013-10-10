@@ -1,4 +1,4 @@
-1381411598
+1381414092
 Application	/home/danil/project/diploma/myshop/config/application.rb	  class Application 
 ApplicationController	/home/danil/project/diploma/myshop/app/controllers/application_controller.rb	class ApplicationController 
 ApplicationHelper	/home/danil/project/diploma/myshop/app/helpers/application_helper.rb	module ApplicationHelper
@@ -22,7 +22,6 @@ TestCase	/home/danil/project/diploma/myshop/test/test_helper.rb	class ActiveSupp
 attributes	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  attr_accessor :attributes,:name,:list
 edit	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def edit
 edit	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def edit
-edit	/home/danil/project/diploma/myshop/app/controllers/categories_controller.rb	  def edit
 init	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def init
 init	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def init
 json	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def json

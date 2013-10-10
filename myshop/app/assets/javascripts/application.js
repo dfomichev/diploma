@@ -13,6 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jstree
 //= require_tree .
 //= require categories
+//= require jquery.jstree/jquery.jstree

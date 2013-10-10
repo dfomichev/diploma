@@ -61,8 +61,7 @@ $(document).ready(function() {
                         }
                 },
                 "ui" : {
-                        "select_limit" : 1,
-                        "initially_select" : [ "asda" ]
+                        "select_limit" : 1
                 },
                 "plugins" : [ "themes", "ui", "crrm","dnd","json_data" ]
         }).bind("select_node.jstree", function (NODE, REF_NODE) {
