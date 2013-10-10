@@ -27,9 +27,13 @@ class ProductsController < ApplicationController
      tmp = params[:file_upload][:image].tempfile
      require 'fileutils'
      of=params[:file_upload][:image].original_filename
-     file = File.join("public/images", of[0] ,of)
+     df=SecureRandom.hex
+     file = File.join("public/images", df[0] ,df)
      FileUtils.mkdir_p File.dirname(file)
      FileUtils.cp tmp.path, file
+     init
+     images=@products.images<<file.gsub(/public\//,'')
+     @products.update_attributes(images:images)
      render text: file.gsub(/public\//,'')
   end
   
