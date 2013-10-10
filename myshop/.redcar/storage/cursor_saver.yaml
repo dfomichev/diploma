@@ -76,18 +76,16 @@ cursor_positions:
   - :path: app/models/attributes.rb
     :cursor_offset: 0
     :timestamp: 2013-10-03 18:59:27 +07:00
-  - :path: app/views/products/edit.html.erb
-    :cursor_offset: 738
-    :timestamp: 2013-10-06 13:03:15 +07:00
-  - :path: app/controllers/application_controller.rb
-    :cursor_offset: 52
-    :timestamp: 2013-10-03 21:30:48 +07:00
   - :path: app/views/products/_attribute_fields.html.erb
     :cursor_offset: 3
     :timestamp: 2013-10-06 12:56:57 +07:00
   - :path: app/views/products/_attribute_set_name.html.erb
-    :cursor_offset: 30
-    :timestamp: 2013-10-06 12:59:25 +07:00
-    :selection_offset: 0
-    :block_selection_mode: false
+    :cursor_offset: 0
+    :timestamp: 2013-10-10 19:35:12 +07:00
+  - :path: app/views/products/edit.html.erb
+    :cursor_offset: 831
+    :timestamp: 2013-10-10 19:35:12 +07:00
+  - :path: app/controllers/application_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2013-10-10 19:35:12 +07:00
 files_to_retain: 0
