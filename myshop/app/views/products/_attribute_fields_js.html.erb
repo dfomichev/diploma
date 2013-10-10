@@ -8,7 +8,7 @@
                             url: "/products/<%= params[:id]  %>/add_image",
                             error: function(data ) { alert(data); },
                             success: function(data){
-                                $("#images").append('<img src=/'+data+'>');
+                                $("#images").append('<img src=/'+data+'_thumb>');
                             }
                         });
 

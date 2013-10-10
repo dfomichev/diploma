@@ -31,9 +31,10 @@ class ProductsController < ApplicationController
      file = File.join("public/images", df[0] ,df)
      FileUtils.mkdir_p File.dirname(file)
      FileUtils.cp tmp.path, file
-     init
-     images=@products.images<<file.gsub(/public\//,'')
-     @products.update_attributes(images:images)
+     Thumbnails.new(file)
+#     init
+#     images=@products.images<<file.gsub(/public\//,'')
+#     @products.update_attributes(images:images)
      render text: file.gsub(/public\//,'')
   end
   
