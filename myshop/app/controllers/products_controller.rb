@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
      file = File.join("public/images", of[0] ,of)
      FileUtils.mkdir_p File.dirname(file)
      FileUtils.cp tmp.path, file
-     render text: File.dirname(file)
+     render text: file.gsub(/public\//,'')
   end
   
   private 
