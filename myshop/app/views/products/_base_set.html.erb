@@ -1,5 +1,5 @@
 <div id="baseSetTab">
-<label>SKU:</label> <input type="text" name="product[sku]" value="<%= @sku %>"><br>
-<label>Name:</label><input type="text" name="product[name]" value="<%= @name %>" /><input type="hidden" name="attr_set_id" value="" /><BR>
-<label>Price:</label> <input type="text" name="product[price]" value="<%= @price %>"><br>
+<label>SKU:</label> <input data-validation="required" type="text"  name="product[sku]" value="<%= @sku %>"><br>
+<label>Name:</label><input data-validation="required" type="text" name="product[name]" value="<%= @name %>" /><input type="hidden" name="attr_set_id" value="" /><BR>
+<label>Price:</label> <input data-validation="number" data-validation-allowing="float" type="text" name="product[price]" value="<%= @price %>"><br>
 </div>

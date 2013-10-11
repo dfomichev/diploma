@@ -31,6 +31,11 @@
   <div id="hidden">
   </div>
 <% end %>
+<script>
+ $.validate({
+    decimalSeparator : '.'
+  });
+</script>
   <div id="imagesTab">
     <%= form_for :file_upload, url: {action: "add_image", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |f| %>
          <%= f.file_field :image %>
