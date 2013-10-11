@@ -5,6 +5,16 @@ function rand(length,current){
 
 
 $(document).ready(function() {
+
+    $('.tab-content:first').show(0);
+    $('.tab:first>span').addClass('selected');
+    $('.tab>span').click(function(){
+       $('.tab>span').removeClass('selected');
+       $(this).addClass('selected'); 
+       $('.tab-content').hide(0);   
+       $(this).next('.tab-content').show(0);     
+    });    
+
   
     $(function () {
 

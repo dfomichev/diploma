@@ -50,3 +50,37 @@ div.zoom_icon {
  background-image: url(/assets/zoom_icon.png) ;
 }
 
+.tabs{
+position:relative;   
+}
+
+.tab{
+display:inline-block;        
+}
+
+.tab>span{
+cursor:pointer;
+}
+
+.tab>span.selected{
+background:black;
+color:white;
+}
+
+.tab-content {
+border: solid;
+position: absolute;
+left: 0;
+top: 18px;
+background: white;
+padding: 5px;
+color: rgb(66, 66, 170);
+border-radius: 8px;
+width: 300px;
+border-width: 2px;
+height: 460px;
+}
+
+.wrapper {
+height: 500px;
+}

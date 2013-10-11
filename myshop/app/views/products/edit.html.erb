@@ -1,15 +1,37 @@
 
     <%= render "attribute_fields_js" %>
     <%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
-
+<div class="wrapper">
 <ul class="tabs">
 <li class="tab">
     <span>tab1</span>
     <div class="tab-content">    
       <%= render("base_set",:locals => { :name=>@name,:sku=>@sku,:price=>@price } ) %>   
+
+         <div id="extAttrTab">
+          <% if !@is_new %>
+              <% @products.extra_attributes.each do |k,v| %>
+               <label><%= k %></label><br>
+                <% v.each do |a,b| %>
+                  <label><%= a %></label><input type="text" name="group[<%= k %>][<%= a %>][value]" value="<%= b["value"] %>">
+                  <br>
+                <% end %>
+              <% end %>
+          <%else%>
+         <select id="attrSet" name="attr_set">
+           <% @attributes.each do |v| %>
+           <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
+           <% end %>
+         </select>
+
+         <%= f.submit "Add",id:"addSet" %>
+         <% end %>
+         <div id="extAttrList"></div>
+  </div>
+
+
     </div>
 </li>
-
 <li class="tab">
     <span>tab2</span>
     <div class="tab-content">
@@ -18,27 +40,6 @@
     <option cid="<%= v[:id] %>"><%= v[:path] %></option>
   <% end %>
   </select>
-  <div id="extAttrTab">
-      <% if !@is_new %>
-          <% @products.extra_attributes.each do |k,v| %>
-               <label><%= k %></label><br>
-                <% v.each do |a,b| %>
-                  <label><%= a %></label><input type="text" name="group[<%= k %>][<%= a %>][value]" value="<%= b["value"] %>">
-                  <br>
-                <% end %>
-          <% end %>  
-      <%else%>   
-         <select id="attrSet" name="attr_set">
-           <% @attributes.each do |v| %>
-           <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
-           <% end %>
-         </select>
-
-         <%= f.submit "Add",id:"addSet" %>
-      <% end %>
-      <div id="extAttrList"></div>
-  </div>
-  <%= f.submit "Save",id:"Save" %>
   <div id="hidden">
   </div>
 <% end %>
@@ -73,7 +74,8 @@
 </div>
 </li>
 </ul>
-
+</div>
+<input id="Save" name="commit" type="submit" value="Save">
 <div id="result"></div>
 
 
