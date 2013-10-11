@@ -9,14 +9,16 @@
                             error: function(data ) { alert(data); },
                             success: function(data){
                                 $("#images").append('<img src=/'+data+'_thumb>');
+                                $("#hidden").append('<input type=text hidden name=images[] value="'+data+'">');
                             }
                         });
 
 
     $(document).on('click','#Save', function() {
+         var _data=$('form#product').serialize();
          $.ajax({
                            type: "POST",
-                            data : $('form#product').serialize(),
+                            data : _data,
                             cache: false,
                             url: "/products/<%= params[:id]  %>/save",
                             success: function(data){

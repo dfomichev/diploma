@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   require 'securerandom'
-  attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new, :product_id
+  attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new, :product_id, :images
 
   def show
    init
@@ -12,15 +12,16 @@ class ProductsController < ApplicationController
   end
     
   def save
+
+    init
     product={:sku=> params["product"]["sku"],
              :name=>params["product"]["name"],
              :price=>params["product"]["price"]}
-
-    product.merge!({:extra_attributes=>params["group"]})
-    init
+    del_images(@images-params["images"])
+    product.merge!({:extra_attributes=>params["group"],
+                    :images=> params["images"] })
     @products.update_attributes(product )
-    @products.save
-    render text: @products.id 
+    render text:  "Saved!" 
   end
 
   def add_image
@@ -39,8 +40,14 @@ class ProductsController < ApplicationController
   end
   
   private 
-
-
+  def del_images(list=self)
+    list.each do |v|
+        file=File.join("public",v)
+        FileUtils.rm file 
+        FileUtils.rm file+'_thumb' 
+    end 
+  end   
+  
   def init
     if params.has_key?('id')
       @products=Products.find(params['id'])
@@ -63,11 +70,13 @@ class ProductsController < ApplicationController
       @sku=@products.sku
       @price=@products.price
       @extra_attributes=@products.extra_attributes
+      @images=@products.images
     else
        @name=String.new
        @sku=String.new
        @price=String.new
        @extra_attributes={}
+       @images=Array.new
     end
 
   end

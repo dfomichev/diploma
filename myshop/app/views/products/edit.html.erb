@@ -28,6 +28,8 @@
       <div id="extAttrList"></div>
   </div>
   <%= f.submit "Save",id:"Save" %>
+  <div id="hidden">
+  </div>
 <% end %>
   <div id="imagesTab">
     <%= form_for :file_upload, url: {action: "add_image", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |f| %>
