@@ -53,21 +53,31 @@
                   var list=v['attributes'];
                   var ac=0;
                   $.each(list,function(n,l) {
+                      var valid='';
                       ac++;
                       str=tmp;
                       name=n;
                       tag=l['tag'];
+                      type=l['type'];
+                      if (type=='href'){
+                        valid='data-validation="url"' ;
+                      }    
                       str=str.replace(/_setname_/g,setname);
+                      str=str.replace(/_valid_/g,valid);
                       str=str.replace(/_name_/g,name);
                       str=str.replace(/_value_/g,value);
                       str=str.replace(/_tag_/g,tag);
                       $('#extAttrList').append(str);
+                      var last=$('#extAttrList input:last');
 
                   });
 
             });
 
           },"json") ;
+          $.validate({
+            decimalSeparator : '.'
+          });
           return false;
         });
          

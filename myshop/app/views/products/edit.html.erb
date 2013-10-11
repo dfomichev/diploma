@@ -1,7 +1,18 @@
-<%= render "attribute_fields_js" %>
-<%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
-  <%= render("base_set",:locals => { :name=>@name,:sku=>@sku,:price=>@price } ) %>   
-  <br>
+
+    <%= render "attribute_fields_js" %>
+    <%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
+
+<ul class="tabs">
+<li class="tab">
+    <span>tab1</span>
+    <div class="tab-content">    
+      <%= render("base_set",:locals => { :name=>@name,:sku=>@sku,:price=>@price } ) %>   
+    </div>
+</li>
+
+<li class="tab">
+    <span>tab2</span>
+    <div class="tab-content">
   <select>
   <% @categories.each do |v| %>  
     <option cid="<%= v[:id] %>"><%= v[:path] %></option>
@@ -36,6 +47,11 @@
     decimalSeparator : '.'
   });
 </script>
+</div>
+</li>
+<li class="tab">
+    <span>tab3</span>
+    <div class="tab-content">
   <div id="imagesTab">
     <%= form_for :file_upload, url: {action: "add_image", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |f| %>
          <%= f.file_field :image %>
@@ -43,8 +59,21 @@
     <% end %>
     <br><br>
     <div id="images">
+     <% if !@is_new %>
+     <% @images.each do |v| %>
+        <div class="image">
+            <div class="del_icon"></div>
+            <a data-lightbox="image-1" href="<%= v %>"><div class="zoom_icon"></div></a>
+            <img src=<%= v %>_thumb>
+        </div>
+     <% end %>     
+     <% end %>
      </div>
  </div>
+</div>
+</li>
+</ul>
+
 <div id="result"></div>
 
 
