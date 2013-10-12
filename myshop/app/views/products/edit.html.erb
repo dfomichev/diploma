@@ -1,15 +1,3 @@
-<script>
-(function($) {  
-$(function() {  
-  
-  $('ul.tabs').on('click', 'li:not(.current)', function() {  
-      $(this).addClass('current').siblings().removeClass('current')  
-          .parents('div.section').find('div.box').eq($(this).index()).fadeIn(150).siblings('div.box').hide();  
-  })  
-  
-})  
-})(jQuery)  
-
 <%= render "attribute_fields_js" %>
 <%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
 
@@ -46,13 +34,19 @@ $(function() {
 
     </div>
     <div class="box" style="display: none;">
-        <select>
-          <% @categories.each do |v| %>
+        <select id="catSel">
+          <% @categories.sort!.each do |v| %>
             <option cid="<%= v[:id] %>"><%= v[:path] %></option>
           <% end %>
         </select>
         <input id="addCat" name="commit" type="submit" value="Add">
+        <div id="categories"></div>
         <div id="hidden">
+            <% if !@is_new %>
+              <% @images.each do |v| %>
+                    <input type="text" hidden="" name="images[]" value="<%= v %>">
+               <% end %>
+             <% end %>
         </div>
         <% end %>
         <script>

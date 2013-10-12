@@ -1,4 +1,15 @@
 <script>
+    (function($) {
+        $(function() {
+
+          $('ul.tabs').on('click', 'li:not(.current)', function() {
+               $(this).addClass('current').siblings().removeClass('current')
+               .parents('div.section').find('div.box').eq($(this).index()).fadeIn(150).siblings('div.box').hide();
+          })
+
+        })
+    })(jQuery)
+
 
        $('#uplForm').ajaxForm({
                             type: "POST",
@@ -11,6 +22,16 @@
                                 $("#hidden").append('<input type=text hidden name=images[] value="/'+data+'">');
                             }
                         });
+
+    $(document).on('click','#addCat', function() {
+       var sel=$("#catSel option:selected");
+       var cid=sel.attr('cid');
+       var val=sel.text(); 
+       $("#categories").append('<p>'+val+'</p>');
+       $("#hidden").append('<input type="text" value='+cid+'>');
+     
+       return false;
+    });      
     $(document).on('click','.del_icon', function() {
           var href=$(this).next().attr('href');
           $(this).parent().remove();
