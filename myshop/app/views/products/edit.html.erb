@@ -1,15 +1,31 @@
+<script>
+(function($) {  
+$(function() {  
+  
+  $('ul.tabs').on('click', 'li:not(.current)', function() {  
+      $(this).addClass('current').siblings().removeClass('current')  
+          .parents('div.section').find('div.box').eq($(this).index()).fadeIn(150).siblings('div.box').hide();  
+  })  
+  
+})  
+})(jQuery)  
 
-    <%= render "attribute_fields_js" %>
-    <%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
-<div class="wrapper">
-<ul class="tabs">
-<li class="tab">
-    <span>tab1</span>
-    <div class="tab-content">    
-      <%= render("base_set",:locals => { :name=>@name,:sku=>@sku,:price=>@price } ) %>   
+<%= render "attribute_fields_js" %>
+<%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
 
-         <div id="extAttrTab">
-          <% if !@is_new %>
+<div class="section">
+
+    <ul class="tabs">
+        <li class="current">Tab1</li>
+        <li class="">Tab2</li>
+        <li>Tab3</li>
+    </ul>
+
+    <div class="box visible" style="display: block;">
+        <%= render("base_set",:locals => { :name=>@name,:sku=>@sku,:price=>@price } ) %>
+
+        <div id="extAttrTab">
+            <% if !@is_new %>
               <% @products.extra_attributes.each do |k,v| %>
                <label><%= k %></label><br>
                 <% v.each do |a,b| %>
@@ -17,64 +33,59 @@
                   <br>
                 <% end %>
               <% end %>
-          <%else%>
-         <select id="attrSet" name="attr_set">
-           <% @attributes.each do |v| %>
-           <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
-           <% end %>
-         </select>
-
-         <%= f.submit "Add",id:"addSet" %>
-         <% end %>
-         <div id="extAttrList"></div>
-  </div>
-
+            <%else%>
+                <select id="attrSet" name="attr_set">
+                    <% @attributes.each do |v| %>
+                    <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
+                    <% end %>
+                </select>
+                <%= f.submit "Add",id:"addSet" %>
+            <% end %>
+            <div id="extAttrList"></div>
+        </div>
 
     </div>
-</li>
-<li class="tab">
-    <span>tab2</span>
-    <div class="tab-content">
-  <select>
-  <% @categories.each do |v| %>  
-    <option cid="<%= v[:id] %>"><%= v[:path] %></option>
-  <% end %>
-  </select>
-  <div id="hidden">
-  </div>
-<% end %>
-<script>
- $.validate({
-    decimalSeparator : '.'
-  });
-</script>
-</div>
-</li>
-<li class="tab">
-    <span>tab3</span>
-    <div class="tab-content">
-  <div id="imagesTab">
+    <div class="box" style="display: none;">
+        <select>
+          <% @categories.each do |v| %>
+            <option cid="<%= v[:id] %>"><%= v[:path] %></option>
+          <% end %>
+        </select>
+        <input id="addCat" name="commit" type="submit" value="Add">
+        <div id="hidden">
+        </div>
+        <% end %>
+        <script>
+         $.validate({
+            decimalSeparator : '.'
+          });
+        </script>
+
+    </div>
+    <div class="box" style="display: none;">
     <%= form_for :file_upload, url: {action: "add_image", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |f| %>
          <%= f.file_field :image %>
         <%= f.submit "Upload",id:"upload" %>
     <% end %>
-    <br><br>
-    <div id="images">
-     <% if !@is_new %>
-     <% @images.each do |v| %>
-        <div class="image">
-            <div class="del_icon"></div>
-            <a data-lightbox="image-1" href="<%= v %>"><div class="zoom_icon"></div></a>
-            <img src=<%= v %>_thumb>
+    
+        <div id="images">
+        <% if !@is_new %>
+             <% @images.each do |v| %>
+                <div class="image">
+                    <div class="del_icon"></div>
+                    <a data-lightbox="image-1" href="<%= v %>"><div class="zoom_icon"></div></a>
+                    <img src=<%= v %>_thumb>
+                </div>
+             <% end %>
+         <% end %>
         </div>
-     <% end %>     
-     <% end %>
-     </div>
- </div>
+
+    </div>
+
+
 </div>
-</li>
-</ul>
-</div>
+
+
 <input id="Save" name="commit" type="submit" value="Save">
 <div id="result"></div>
 
