@@ -28,7 +28,7 @@
        var cid=sel.attr('cid');
        var val=sel.text(); 
        $("#categories").append('<p>'+val+'</p>');
-       $("#hidden").append('<input type="text" value='+cid+'>');
+       $("#hidden").append('<input type="text" name="categories[]" value='+cid+'>');
      
        return false;
     });      

@@ -16,7 +16,8 @@ class ProductsController < ApplicationController
     init
     product={:sku=> params["product"]["sku"],
              :name=>params["product"]["name"],
-             :price=>params["product"]["price"]}
+             :price=>params["product"]["price"],
+             :categories=>params["categories"].uniq }
     del_images(@images-params["images"])
     product.merge!({:extra_attributes=>params["group"],
                     :images=> params["images"] })
