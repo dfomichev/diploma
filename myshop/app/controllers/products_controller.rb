@@ -18,7 +18,11 @@ class ProductsController < ApplicationController
              :name=>params["product"]["name"],
              :price=>params["product"]["price"],
              :categories=>params["cat"].keys }
-    del_images(@images-params["images"])
+    if params.has_key?("images") && @images.respond_to?(:each)
+        del_images(@images-params["images"])
+    else 
+        del_images(@images)
+    end
     product.merge!({:extra_attributes=>params["group"],
                     :images=> params["images"] })
     @products.update_attributes(product )
@@ -34,16 +38,20 @@ class ProductsController < ApplicationController
      FileUtils.mkdir_p File.dirname(file)
      FileUtils.cp tmp.path, file
      Thumbnails.new(file)
-     render text: "Done!" #file.gsub(/public\//,'')
+     render text: file.gsub(/public\//,'')
   end
   
   private 
   def del_images(list=self)
-    list.each do |v|
-        file=File.join("public",v)
-        FileUtils.rm file 
-        FileUtils.rm file+'_thumb' 
-    end 
+    if list.respond_to?(:each)
+        list.each do |v|
+            file=File.join("public",v)
+            if File.exists?(file)
+               FileUtils.rm file 
+               FileUtils.rm file+'_thumb' 
+            end
+        end 
+    end
   end   
   
   def init
@@ -62,6 +70,8 @@ class ProductsController < ApplicationController
     @product_id=@products.id
     @categories=Categories.all.to_a
     @attributes=Attributes.all.to_a
+    @images=Array.new
+    @p_categories=Array.new 
 
     if @products.respond_to?:name
       @name=@products.name
@@ -75,8 +85,6 @@ class ProductsController < ApplicationController
        @sku=String.new
        @price=String.new
        @extra_attributes={}
-       @images=Array.new
-       @p_categories=Array.new 
     end
 
   end

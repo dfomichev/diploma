@@ -10,7 +10,7 @@ class AttributeSetController < ApplicationController
   def edit
    init
    set_data
-   @attribute_types=['text','url']
+   @attribute_types=['string','text','url']
   end
 
   def save

@@ -39,7 +39,7 @@
 
         <div id="tree"></div>
         <div id="hidden">
-            <% if !@is_new %>
+            <% if @images.respond_to?(:each) %>
               <% @images.each do |v| %>
                     <input type="text" hidden="" name="images[]" value="<%= v %>">
                <% end %>
@@ -60,7 +60,7 @@
     <% end %>
     
         <div id="images">
-        <% if !@is_new %>
+        <% if @images.respond_to?(:each) %>
              <% @images.each do |v| %>
                 <div class="image">
                     <div class="del_icon"></div>
