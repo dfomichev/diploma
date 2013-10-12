@@ -109,11 +109,10 @@ ul.tabs {
     display: none;
     border: 1px solid #D4D4D4;
   border-width: 0 1px 1px;
-    background: #EFEFEF;
+    background: #FFF;
     padding: 0 12px;
 }
 .box.visible {
     display: block;
 }
-
 

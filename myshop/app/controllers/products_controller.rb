@@ -17,12 +17,12 @@ class ProductsController < ApplicationController
     product={:sku=> params["product"]["sku"],
              :name=>params["product"]["name"],
              :price=>params["product"]["price"],
-             :categories=>params["categories"].uniq }
+             :categories=>params["cat"].keys }
     del_images(@images-params["images"])
     product.merge!({:extra_attributes=>params["group"],
                     :images=> params["images"] })
     @products.update_attributes(product )
-    render text:  params["images"].inspect #"Saved!" 
+    render text: "Done!" #params["cat"].keys   
   end
 
   def add_image
@@ -34,7 +34,7 @@ class ProductsController < ApplicationController
      FileUtils.mkdir_p File.dirname(file)
      FileUtils.cp tmp.path, file
      Thumbnails.new(file)
-     render text: file.gsub(/public\//,'')
+     render text: "Done!" #file.gsub(/public\//,'')
   end
   
   private 

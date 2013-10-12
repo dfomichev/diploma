@@ -1,5 +1,8 @@
 <%= render "attribute_fields_js" %>
 <%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
+<script>
+    var check_list=<%= raw @p_categories.as_json %>;
+</script>
 
 <div class="section">
 
@@ -34,23 +37,8 @@
 
     </div>
     <div class="box" style="display: none;">
-        <select id="catSel">
-          <% @categories.sort!.each do |v| %>
-            <option cid="<%= v[:id] %>"><%= raw(v[:path].gsub(/\//,'&raquo;') )%></option>
-          <% end %>
-        </select>
-        <input id="addCat" name="commit" type="submit" value="Add">
-        <div id="categories">
-            <% if !@is_new %>
-                <% @p_categories.each do |v| %>
-                    <% @categories.each do |k| %> 
-                       <% if k[:id]==v %>
-                       <div class="category" id=<%= v %>><div class="del_icon_s"></div> <p><%= raw(k[:path].gsub(/\//,'&raquo;')) %><input type=text hidden name="categories[]" value="<%= v %>"></p></div>
-                       <% end %>     
-                    <% end %>
-                <% end %>
-            <% end %>
-        </div>
+
+        <div id="tree"></div>
         <div id="hidden">
             <% if !@is_new %>
               <% @images.each do |v| %>
@@ -88,7 +76,6 @@
 
 
 </div>
-
 
 <input id="Save" name="commit" type="submit" value="Save">
 <div id="result"></div>
