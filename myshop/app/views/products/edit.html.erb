@@ -18,10 +18,9 @@
         <div id="extAttrTab">
             <% if !@is_new %>
               <% @products.extra_attributes.each do |k,v| %>
-               <label><%= k %></label><br>
+               <h3><%= k %></h1>
                 <% v.each do |a,b| %>
-                  <label><%= a %></label><input type="text" name="group[<%= k %>][<%= a %>][value]" value="<%= b["value"] %>">
-                  <br>
+                  <label><%= a %>:</label><input type="text" name="group[<%= k %>][<%= a %>][value]" value="<%= b["value"] %>">
                 <% end %>
               <% end %>
             <%else%>

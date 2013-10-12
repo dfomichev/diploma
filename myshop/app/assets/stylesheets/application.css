@@ -68,7 +68,7 @@ div.zoom_icon {
 
 
 .section {
-    width: 600px;
+    width: 400px;
     background: #EFEFEF;
     margin: 0 0 30px;
 }
@@ -116,3 +116,12 @@ ul.tabs {
     display: block;
 }
 
+#cont {
+  border: 1px solid #D4D4D4;
+  padding: 5px;
+  width: 400px;
+}
+label {
+      display: block;  
+      position: relative; 
+}
