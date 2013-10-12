@@ -1,4 +1,5 @@
 Myshop::Application.routes.draw do
+  resources "admin", only: [:index]
   get "categories/edit"
   get "categories/save"
   get "categories/show"
