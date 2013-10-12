@@ -27,9 +27,7 @@
        var sel=$("#catSel option:selected");
        var cid=sel.attr('cid');
        var val=sel.text(); 
-       $("#categories").append('<p>'+val+'</p>');
-       $("#hidden").append('<input type="text" name="categories[]" value='+cid+'>');
-     
+       $("#categories").append('<div class="category" id='+cid+'> <p>'+val+'<input type=text hidden name="categories[]" value="'+cid+'"></p></div>');
        return false;
     });      
     $(document).on('click','.del_icon', function() {

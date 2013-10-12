@@ -45,7 +45,7 @@
                 <% @p_categories.each do |v| %>
                     <% @categories.each do |k| %> 
                        <% if k[:id]==v %>
-                       <p><%= k[:path] %><input type=text hidden name="categories[]" value="<%= v %>"></p>
+                       <div class="category" id=<%= v %>> <p><%= k[:path] %><input type=text hidden name="categories[]" value="<%= v %>"></p></div>
                        <% end %>     
                     <% end %>
                 <% end %>
