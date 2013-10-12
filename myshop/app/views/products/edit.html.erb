@@ -24,7 +24,7 @@
             <%else%>
                 <select id="attrSet" name="attr_set">
                     <% @attributes.each do |v| %>
-                    <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
+                        <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
                     <% end %>
                 </select>
                 <%= f.submit "Add",id:"addSet" %>
@@ -41,6 +41,15 @@
         </select>
         <input id="addCat" name="commit" type="submit" value="Add">
         <div id="categories"></div>
+            <% if !@is_new %>
+                <% @p_categories.each do |v| %>
+                    <% @categories.each do |k| %> 
+                       <% if k[:id]==v %>
+                       <p><%= k[:path] %><input type=text hidden name="categories[]" value="<%= v %>"></p>
+                       <% end %>     
+                    <% end %>
+                <% end %>
+            <% end %>
         <div id="hidden">
             <% if !@is_new %>
               <% @images.each do |v| %>

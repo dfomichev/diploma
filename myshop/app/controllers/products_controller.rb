@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   require 'securerandom'
-  attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new, :product_id, :images
+  attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new, :product_id, :images, :p_categories
 
   def show
    init
@@ -69,12 +69,14 @@ class ProductsController < ApplicationController
       @price=@products.price
       @extra_attributes=@products.extra_attributes
       @images=@products.images
+      @p_categories=@products.categories
     else
        @name=String.new
        @sku=String.new
        @price=String.new
        @extra_attributes={}
        @images=Array.new
+       @p_categories=Array.new 
     end
 
   end
