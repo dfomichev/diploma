@@ -44,6 +44,18 @@ div.del_icon {
  background-image: url(/assets/del_icon.png) ;
 }
 
+div.del_icon_s {
+border: 1px;
+top: 4px;
+right: 4px;
+width: 16px;
+height: 16px;
+cursor: pointer;
+background-image: url(/assets/del_icon.png);
+float: left;
+margin-right: 10px;
+}
+
 div.zoom_icon {
  position: absolute;
  top: 45px;

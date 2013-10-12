@@ -26,8 +26,8 @@
     $(document).on('click','#addCat', function() {
        var sel=$("#catSel option:selected");
        var cid=sel.attr('cid');
-       var val=sel.text(); 
-       $("#categories").append('<div class="category" id='+cid+'> <p>'+val+'<input type=text hidden name="categories[]" value="'+cid+'"></p></div>');
+       var val=sel.text().replace(/\//g,'&raquo'); 
+       $("#categories").append('<div class="category" id='+cid+'><div class="del_icon_s"></div>  <p>'+val+'<input type=text hidden name="categories[]" value="'+cid+'"></p></div>');
        return false;
     });      
     $(document).on('click','.del_icon', function() {
@@ -36,6 +36,10 @@
           $("input").filter(function () {
              return this.value === href;
           }).remove();        
+    });      
+
+    $(document).on('click','.del_icon_s', function() {
+          $(this).parent().remove();
     });      
     $(document).on('click','#Save', function() {
          var _data=$('form#product').serialize();
