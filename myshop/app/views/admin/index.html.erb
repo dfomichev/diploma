@@ -1,2 +1,42 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<div id="admin_wrapper">
+<div class="section vertical">
+
+    <ul class="tabs">
+        <li class="current">Products</li>
+        <li>Attributes</li>
+        <li>Categories</li>
+        <li>Users</li>
+    </ul>
+
+    <div class="box visible">
+        <p><br><br><br><br></p>
+
+    </div>
+
+    <div class="box">
+        <p><br><br><br><br></p>
+    </div>
+
+    <div class="box">
+        <p><br><br><br><br></p>
+    </div>
+
+    <div class="box">
+        <p><br><br><br><br></p>
+    </div>
+
+</div>
+</div>
+<script>
+    (function($) {
+        $(function() {
+
+          $('ul.tabs').on('click', 'li:not(.current)', function() {
+               $(this).addClass('current').siblings().removeClass('current')
+               .parents('div.section').find('div.box').eq($(this).index()).fadeIn(150).siblings('div.box').hide();
+          })
+
+        })
+    })(jQuery)
+
+</script>

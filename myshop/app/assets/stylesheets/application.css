@@ -116,10 +116,56 @@ ul.tabs {
     display: block;
 }
 
+.section.vertical {
+    width: 440px;
+    border-left: 160px solid #FFF;
+}
+.vertical .tabs {
+    width: 160px;
+    float: left;
+    display: inline;
+    margin: 0 0 0 -160px;
+}
+.vertical .tabs li {
+    padding: 0 13px;
+    margin: 0 0 1px;
+    border: 1px solid #E4E4E4;
+    border-right: 1px solid #F9F9F9;
+    width: 132px;
+    height: 25px;
+}
+.vertical .tabs li:hover {
+    width: 131px;
+}
+.vertical .tabs li.current {
+    width: 133px;
+    color: #444;
+    background: #EFEFEF;
+    border: 1px solid #D4D4D4;
+  border-right: 1px solid #EFEFEF;
+  margin-right: -1px;
+}
+.vertical .box {
+  border-width: 1px;
+  height: 600px;
+}
+
+.vertical ul.tabs {
+list-style: none;
+border: none;
+padding-left: 0px;
+}
+
 #cont {
   border: 1px solid #D4D4D4;
   padding: 5px;
   width: 400px;
+}
+
+#admin_wrapper {
+  border: 1px solid #D4D4D4;
+  padding: 5px;
+  width: 600px;
 }
 label {
       display: block;  
