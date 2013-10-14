@@ -12,32 +12,27 @@ class ProductsController < ApplicationController
    set_data
    @attribute_types=['video','text','number','file']
   end
-  
+    
   def save
     init	
-    attr_set={}
-    attr_set[:name]=params[:name]
-    attr_set[:name]=params[:name]
-    attr_set[:list]={}
 
-    params[:group].sort_by{|x,y|y[:order]}.each do |k,v|
-      attr_set[:list][v[:name]]={}
-      attr_set[:list][v[:name]][:id]=SecureRandom.hex
-      attr_set[:list][v[:name]]['tag']=v['tag']
+    sku=params[:product][:sku]    
+    name=params[:product][:name]
+    price=params[:product][:price]
+
+    params[:group].each do |k,v|
       list={}
-      params[:param][k].sort_by{|x,y|y[:order]} .each do |a,b|    
-         list[b[:name]]={}
-         list[b[:name]]['type']=b['type']
-         list[b[:name]]['tag']=b['tag']
+      params[:group][k].each do |a,b|    
       end
-      attr_set[:list][v[:name]]['products']=list
     end
-    @products.update_attribute(:name,attr_set[:name] )
-    @products.update_attribute(:list,attr_set[:list])
-    @products.save
+    render text: params[:group].inspect
+    
+ #   @products.update_attribute(:name,product[:name] )
+ #   @products.update_attribute(:list,product[:list])
+ #    @products.save
      		
     set_data
-    render "show"
+  #  render "show"
   end
   
   private 
@@ -48,8 +43,8 @@ class ProductsController < ApplicationController
     @categories=Categories.all.to_a
     @attributes=Attributes.all.to_a
     if @products.respond_to?:name
-     @name=@products.name	
-     @list=@products.list
+      @name=@products.name	
+      @list=@products.list
     end
   end
 

@@ -62,30 +62,50 @@ cursor_positions:
   - :path: app/views/attribute_set/edit.html.erb
     :cursor_offset: 609
     :timestamp: 2013-10-03 18:59:27 +07:00
-  - :path: app/controllers/attribute_set_controller.rb
-    :cursor_offset: 1075
-    :timestamp: 2013-10-03 21:31:31 +07:00
-  - :path: app/controllers/products_controller.rb
-    :cursor_offset: 74
-    :timestamp: 2013-10-03 21:31:04 +07:00
-  - :path: app/models/products.rb
-    :cursor_offset: 14
-    :timestamp: 2013-10-03 19:43:30 +07:00
-    :selection_offset: 6
-    :block_selection_mode: false
-  - :path: app/models/attributes.rb
-    :cursor_offset: 0
-    :timestamp: 2013-10-03 18:59:27 +07:00
-  - :path: app/views/products/_attribute_fields.html.erb
-    :cursor_offset: 3
-    :timestamp: 2013-10-06 12:56:57 +07:00
-  - :path: app/views/products/_attribute_set_name.html.erb
-    :cursor_offset: 0
-    :timestamp: 2013-10-10 19:35:12 +07:00
-  - :path: app/views/products/edit.html.erb
-    :cursor_offset: 831
-    :timestamp: 2013-10-10 19:35:12 +07:00
   - :path: app/controllers/application_controller.rb
     :cursor_offset: 0
+    :timestamp: 2013-10-12 17:07:35 +07:00
+  - :path: app/models/attributes.rb
+    :cursor_offset: 0
     :timestamp: 2013-10-10 19:35:12 +07:00
+  - :path: app/models/products.rb
+    :cursor_offset: 0
+    :timestamp: 2013-10-10 19:35:12 +07:00
+  - :path: app/views/products/show.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-10-10 19:35:12 +07:00
+  - :path: app/controllers/categories_controller.rb
+    :cursor_offset: 0
+    :timestamp: 2013-10-12 17:07:35 +07:00
+  - :path: app/views/products/_group_fields.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-10-10 19:35:12 +07:00
+  - :path: app/controllers/attribute_set_controller.rb
+    :cursor_offset: 347
+    :timestamp: 2013-10-10 19:35:12 +07:00
+    :selection_offset: 341
+    :block_selection_mode: false
+  - :path: app/controllers/products_controller.rb
+    :cursor_offset: 332
+    :timestamp: 2013-10-12 22:04:52 +07:00
+  - :path: app/views/products/edit.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-10-12 17:07:35 +07:00
+  - :path: app/views/products/_base_set.html.erb
+    :cursor_offset: 302
+    :timestamp: 2013-10-12 18:41:28 +07:00
+  - :path: app/views/products/_attribute_fields.html.erb
+    :cursor_offset: 64
+    :timestamp: 2013-10-12 18:40:43 +07:00
+    :selection_offset: 53
+    :block_selection_mode: false
+  - :path: app/views/products/_attribute_fields_js.html.erb
+    :cursor_offset: 1338
+    :timestamp: 2013-10-12 18:31:32 +07:00
+  - :path: app/views/products/_attribute_set_name.html.erb
+    :cursor_offset: 92
+    :timestamp: 2013-10-12 22:04:43 +07:00
+  - :path: app/assets/javascripts/categories.js
+    :cursor_offset: 365
+    :timestamp: 2013-10-12 18:49:42 +07:00
 files_to_retain: 0

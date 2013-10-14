@@ -6,22 +6,31 @@
       $(document).on('click','#addSet', function() {
         var hash=$.post("/attribute_set/a9b57479756275293b250000/json",{sid:"sid"},
           function( data ) {
+            var gc=0;
             $.each(data,function(a,v) {
+                  gc++;
                   var tmp='<%= render("attribute_fields") %>';
                   var str;
+                  var value='';
                   var type;
                   var name=a;
                   var tag=v['tag'];
-                  $('#extAttrList').append('<p class="set_name">'+name+'</p>');
+                  var id=v['id'];
+                  str='<%= render("attribute_set_name") %>'.replace(/_gc_/g,gc).replace(/_name_/g,name);
+                  $('#extAttrList').append(str);
                   var list=v['attributes'];
+                  var ac=0;
                   $.each(list,function(n,l) {
-                      var str=tmp;
+                      ac++;
+                      str=tmp;
                       name=n;
                       tag=l['tag'];
-                      type=l['type'];
                       str=str.replace(/_name_/g,name);
-                      str=str.replace(/_type_/g,type);
+                      str=str.replace(/_id_/g,id);                      
+                      str=str.replace(/_value_/g,value);
                       str=str.replace(/_tag_/g,tag);
+                      str=str.replace(/_ac_/g,ac);                      
+                      str=str.replace(/_gc_/g,gc);                      
                       $('#extAttrList').append(str);
 
                   });

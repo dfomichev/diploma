@@ -1,10 +1,9 @@
 --- 
 open_files: 
-  - app/controllers/attribute_set_controller.rb
   - app/controllers/products_controller.rb
-  - app/models/products.rb
-  - app/models/attributes.rb
   - app/views/products/edit.html.erb
-  - app/controllers/application_controller.rb
+  - app/views/products/_base_set.html.erb
   - app/views/products/_attribute_fields.html.erb
+  - app/views/products/_attribute_fields_js.html.erb
   - app/views/products/_attribute_set_name.html.erb
+  - app/assets/javascripts/categories.js

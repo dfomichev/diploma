@@ -1,4 +1,4 @@
-1381414092
+1381590292
 Application	/home/danil/project/diploma/myshop/config/application.rb	  class Application 
 ApplicationController	/home/danil/project/diploma/myshop/app/controllers/application_controller.rb	class ApplicationController 
 ApplicationHelper	/home/danil/project/diploma/myshop/app/helpers/application_helper.rb	module ApplicationHelper
@@ -20,27 +20,28 @@ ProductsHelper	/home/danil/project/diploma/myshop/app/helpers/products_helper.rb
 ProductsHelperTest	/home/danil/project/diploma/myshop/test/helpers/products_helper_test.rb	class ProductsHelperTest 
 TestCase	/home/danil/project/diploma/myshop/test/test_helper.rb	class ActiveSupport::TestCase
 attributes	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  attr_accessor :attributes,:name,:list
-edit	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def edit
+categories	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  attr_accessor :products,:name,:list, :categories
 edit	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def edit
-init	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def init
+edit	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def edit
 init	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def init
+init	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def init
 json	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def json
 json	/home/danil/project/diploma/myshop/app/controllers/categories_controller.rb	  def json
-json_to_tree	/home/danil/project/diploma/myshop/app/controllers/categories_controller.rb	  def json_to_tree(obj=self,cid="null",h=Array.new)
+json_to_tree	/home/danil/project/diploma/myshop/app/controllers/categories_controller.rb	  def json_to_tree(obj=self,cid="null",path=String.new,h=Array.new)
 link_to_add_fields	/home/danil/project/diploma/myshop/app/helpers/application_helper.rb	def link_to_add_fields(name, f, association)
 link_to_remove_fields	/home/danil/project/diploma/myshop/app/helpers/application_helper.rb	  def link_to_remove_fields(name, f)
-list	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  attr_accessor :products,:name,:list
 list	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  attr_accessor :attributes,:name,:list
-name	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  attr_accessor :products,:name,:list
+list	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  attr_accessor :products,:name,:list, :categories
 name	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  attr_accessor :attributes,:name,:list
-products	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  attr_accessor :products,:name,:list
+name	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  attr_accessor :products,:name,:list, :categories
+products	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  attr_accessor :products,:name,:list, :categories
 rand	/home/danil/project/diploma/myshop/app/assets/javascripts/categories.js	function rand(length,current)
-save	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def save
 save	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def save
 save	/home/danil/project/diploma/myshop/app/controllers/categories_controller.rb	  def save
-set_data	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def set_data
+save	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def save
 set_data	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def set_data
-show	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def show
+set_data	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def set_data
 show	/home/danil/project/diploma/myshop/app/controllers/attribute_set_controller.rb	  def show
 show	/home/danil/project/diploma/myshop/app/controllers/categories_controller.rb	  def show
+show	/home/danil/project/diploma/myshop/app/controllers/products_controller.rb	  def show
 tree_to_json	/home/danil/project/diploma/myshop/app/controllers/categories_controller.rb	  def tree_to_json(obj=self,h={},a=Array.new)

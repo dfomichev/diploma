@@ -7,9 +7,9 @@ function rand(length,current){
 $(document).ready(function() {
     $(function () {
 
-        $("#Save").click(function () {
-            return false;
-        });
+        //$("#Save").click(function () {
+          //  return false;
+        //});
 
 
 
