@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require lightbox
  *= require_tree .
  */
 div.even
@@ -20,3 +21,32 @@ div.odd
 {
   background-color: #D3D3D3;
 }
+
+div.image 
+{
+ padding: 5px;
+ position: relative;
+ overflow: hidden;
+ width: 280px;
+}
+
+div.del_icon {
+ position: absolute;
+ top: 4px;
+ right: 4px;
+ width: 32px;
+ height: 32px;
+ cursor: pointer;
+ background-image: url(/assets/del_icon.png) ;
+}
+
+div.zoom_icon {
+ position: absolute;
+ top: 45px;
+ right: 4px;
+ width: 32px;
+ height: 32px;
+ cursor: pointer;
+ background-image: url(/assets/zoom_icon.png) ;
+}
+

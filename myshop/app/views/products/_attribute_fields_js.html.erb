@@ -1,19 +1,24 @@
 <script>
 
 
-    
-
        $('#uplForm').ajaxForm({
                             type: "POST",
                             url: "/products/<%= params[:id]  %>/add_image",
                             error: function(data ) { alert(data); },
                             success: function(data){
-                                $("#images").append('<img src=/'+data+'_thumb>');
-                                $("#hidden").append('<input type=text hidden name=images[] value="'+data+'">');
+                                var href=data.replace(/_thumb/,'');
+			                        	var str='<%= render "image" %>'.replace(/_data_/g,data).replace(/_href_/,href);
+                                $("#images").append(str);
+                                $("#hidden").append('<input type=text hidden name=images[] value="/'+data+'">');
                             }
                         });
-
-
+    $(document).on('click','.del_icon', function() {
+          var href=$(this).next().attr('href');
+          $(this).parent().remove();
+          $("input").filter(function () {
+             return this.value === href;
+          }).remove();        
+    });      
     $(document).on('click','#Save', function() {
          var _data=$('form#product').serialize();
          $.ajax({

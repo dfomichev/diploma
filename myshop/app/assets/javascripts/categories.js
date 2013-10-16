@@ -5,8 +5,7 @@ function rand(length,current){
 
 
 $(document).ready(function() {
-
-
+  
     $(function () {
 
         $("#tree").click(function () {

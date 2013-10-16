@@ -102,10 +102,10 @@ cursor_positions:
   - :path: app/views/products/_attribute_fields_js.html.erb
     :cursor_offset: 1338
     :timestamp: 2013-10-12 18:31:32 +07:00
-  - :path: app/views/products/_attribute_set_name.html.erb
-    :cursor_offset: 92
-    :timestamp: 2013-10-12 22:04:43 +07:00
   - :path: app/assets/javascripts/categories.js
-    :cursor_offset: 365
-    :timestamp: 2013-10-12 18:49:42 +07:00
+    :cursor_offset: 0
+    :timestamp: 2013-10-16 18:20:39 +07:00
+  - :path: app/views/products/_attribute_set_name.html.erb
+    :cursor_offset: 0
+    :timestamp: 2013-10-16 18:20:39 +07:00
 files_to_retain: 0

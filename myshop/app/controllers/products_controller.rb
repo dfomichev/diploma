@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
     product.merge!({:extra_attributes=>params["group"],
                     :images=> params["images"] })
     @products.update_attributes(product )
-    render text:  "Saved!" 
+    render text:  params["images"].inspect #"Saved!" 
   end
 
   def add_image
@@ -33,9 +33,6 @@ class ProductsController < ApplicationController
      FileUtils.mkdir_p File.dirname(file)
      FileUtils.cp tmp.path, file
      Thumbnails.new(file)
-#     init
-#     images=@products.images<<file.gsub(/public\//,'')
-#     @products.update_attributes(images:images)
      render text: file.gsub(/public\//,'')
   end
   
