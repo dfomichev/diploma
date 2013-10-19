@@ -82,22 +82,12 @@ $(document).ready(function() {
                     "real_checkboxes": true,
                     "real_checkboxes_names": function (n) { return [ ("cat["+ n[0].id )+"]",n[0].id ]}
                 },
-                "plugins" : [ "themes", "ui", "crrm","dnd","json_data","checkbox" ]
+                "plugins" : [ "themes", "ui", "crrm","dnd","json_data" ]
         }).bind("select_node.jstree", function (NODE, REF_NODE) {
             var a = $.jstree._focused().get_selected();
     	});
 
     });
-    $("#tree").bind("loaded.jstree", function (event, data) {
-        if (typeof  check_list !=='undefined') {
-            $.each( check_list, function( key,value ) {
-               $("#tree").jstree('check_node','#'+value); 
-            });
-        }else{
-            $("#tree").jstree('hide_checkboxes');
-            $("#tree").jstree('select_node',$("#tree").find('li')[0]);
-        }
-     })
-
+  
 });
 

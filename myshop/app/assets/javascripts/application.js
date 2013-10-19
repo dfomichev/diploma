@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require categories
+//= require common
 //= require jquery.jstree/jquery.jstree
 //= require  jquery.form
 //= require lightbox

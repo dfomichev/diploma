@@ -91,14 +91,14 @@ ul.tabs {
     border-bottom: 1px solid #F9F9F9;
     position: relative;
 }
-.tabs li:hover,
+.htabs li:hover,
 .vertical .tabs li:hover {
     color: #F70;
     padding: 0 13px;
     background: #FFFFDF;
     border: 1px solid #FFCA95;
 }
-.tabs li.current {
+.htabs li.current {
     color: #444;
     background: #EFEFEF;
     padding: 0 13px 2px;
@@ -184,11 +184,12 @@ label {
     margin: 0 0 30px;
 }
 ul.htabs {
-    height: 28px;
-    line-height: 25px;
-    list-style: none;
-    border-bottom: 1px solid #DDD;
-    background: #FFF;
+height: 28px;
+line-height: 25px;
+list-style: none;
+border-bottom: 1px solid #DDD;
+background: #FFF;
+padding-left: 0;
 }
 .htabs li {
     float: left;
@@ -202,15 +203,7 @@ ul.htabs {
     border-bottom: 1px solid #F9F9F9;
     position: relative;
 }
-.htabs li:hover,
-}
-.htabs li.curr {
-    color: #444;
-    background: #EFEFEF;
-    padding: 0 13px 2px;
-    border: 1px solid #D4D4D4;
-    border-bottom: 1px solid #EFEFEF;
-}
+
 
 #admin_wrapper {
 border: 1px solid #D4D4D4;

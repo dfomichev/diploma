@@ -39,7 +39,7 @@
     </div>
     <div class="box" style="display: none;">
 
-        <div id="tree"></div>
+        <div id="ptree"></div>
         <div id="hidden">
             <% if @images.respond_to?(:each) %>
               <% @images.each do |v| %>
@@ -82,4 +82,4 @@
 <div id="result"></div>
 
 
-
+<%= javascript_include_tag "products", "data-turbolinks-track" => true %>

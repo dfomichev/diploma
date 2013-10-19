@@ -10,6 +10,7 @@
 
     <div class="box visible">
         <input id="addProdcut" name="commit" type="submit" value="Add">
+
     </div>
 
     <div class="box">
@@ -17,7 +18,7 @@
     </div>
 
     <div class="box">
-        <p><br><br><br><br></p>
+        <div id="tree"></div>
     </div>
 
     <div class="box">
@@ -28,17 +29,6 @@
 </div>
 <div id ="editContainer"></div>
 
-<script>
-    (function($) {
-        $(function() {
+<%= javascript_include_tag "admin", "data-turbolinks-track" => true %>
 
-          $('ul.tabs').on('click', 'li:not(.current)', function() {
-               $(this).addClass('current').siblings().removeClass('current')
-               .parents('div.section').find('div.box').eq($(this).index()).fadeIn(150).siblings('div.box').hide();
-              
-          })
-          
-        })
-    })(jQuery)
 
-</script>
