@@ -9,8 +9,7 @@
     </ul>
 
     <div class="box visible">
-        <p><br><br><br><br></p>
-
+        <input id="addProdcut" name="commit" type="submit" value="Add">
     </div>
 
     <div class="box">
@@ -27,6 +26,8 @@
 
 </div>
 </div>
+<div id ="editContainer"></div>
+
 <script>
     (function($) {
         $(function() {
@@ -34,8 +35,9 @@
           $('ul.tabs').on('click', 'li:not(.current)', function() {
                $(this).addClass('current').siblings().removeClass('current')
                .parents('div.section').find('div.box').eq($(this).index()).fadeIn(150).siblings('div.box').hide();
+              
           })
-
+          
         })
     })(jQuery)
 

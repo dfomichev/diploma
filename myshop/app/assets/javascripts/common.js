@@ -5,15 +5,21 @@ function rand(length,current){
 
 
 $(document).ready(function() {
-     $('.tab-content:first').show(2);
-    $('.tab:first>span').addClass('selected');
-    $('.tab>span').click(function(){
-       $('.tab>span').removeClass('selected');
-       $(this).addClass('selected'); 
-       $('.tab-content').hide(0);   
-       $(this).next('.tab-content').show(0);     
-    }); 
-    $(function () {
+
+    $(document).on('click','#addProdcut', function() {
+      $.ajax({
+                           type: "GET",
+                            url: "/products/edit",
+                            success: function(data){
+                                $("#editContainer").html(data);
+                            }
+                        });
+
+            return false;
+
+     });  
+  
+  $(function () {
 
         $("#tree").click(function () {
           if ( $("#tree").jstree("get_selected").attr("blocked" )){

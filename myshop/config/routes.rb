@@ -4,6 +4,7 @@ Myshop::Application.routes.draw do
   get "categories/save"
   get "categories/show"
   get "products/edit"
+  get "products/list"
   post "products/save"
   resources :products do
   	post "save", on: :member

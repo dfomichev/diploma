@@ -9,6 +9,13 @@ class ProductsController < ApplicationController
   
   def edit
    init
+   render "edit"
+  end
+  
+  def list
+  
+    @list=Products.all.to_a  
+    render text: @list.inspect
   end
     
   def save
@@ -71,7 +78,7 @@ class ProductsController < ApplicationController
     @categories=Categories.all.to_a
     @attributes=Attributes.all.to_a
     @images=Array.new
-    @p_categories=Array.new 
+    @p_categories='' 
 
     if @products.respond_to?:name
       @name=@products.name

@@ -1,9 +1,11 @@
 --- 
 open_files: 
   - app/controllers/products_controller.rb
+  - config/routes.rb
+  - app/views/admin/index.html.erb
   - app/views/products/edit.html.erb
-  - app/views/products/_base_set.html.erb
-  - app/views/products/_attribute_fields.html.erb
+  - app/assets/javascripts/common.js
   - app/views/products/_attribute_fields_js.html.erb
-  - app/views/products/_attribute_set_name.html.erb
-  - app/assets/javascripts/categories.js
+  - app/assets/stylesheets/application.css
+  - app/assets/javascripts/application.js
+  - app/assets/stylesheets/admin.css.scss

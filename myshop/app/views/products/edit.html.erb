@@ -1,12 +1,14 @@
 <%= render "attribute_fields_js" %>
 <%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
+
+<% if !@is_new %>
 <script>
     var check_list=<%= raw @p_categories.as_json %>;
 </script>
+<% end %>
+<div class="hsection">
 
-<div class="section">
-
-    <ul class="tabs">
+    <ul class="htabs">
         <li class="current">Tab1</li>
         <li class="">Tab2</li>
         <li>Tab3</li>
