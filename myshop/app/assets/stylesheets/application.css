@@ -12,15 +12,9 @@
  *= require lightbox
  *= require_tree .
  */
-div {
-
-    border-radius: 5px;
-
-}
 
 div.even {
 background-color: #FFFFFF;
-border: 1px #6C7D94 solid;
 border-radius: 5px;
 padding: 10px;
 margin: 5px;
@@ -28,7 +22,6 @@ margin: 5px;
 
 div.odd {
 background-color: #FFFFFF;
-border: 1px #6C7D94 solid;
 border-radius: 5px;
 padding: 10px;
 margin: 5px;
@@ -120,9 +113,8 @@ ul.tabs {
 .box {
     display: none;
     border: 1px solid #D4D4D4;
-  border-width: 0 1px 1px;
     background: #FFF;
-    padding: 0 12px;
+    padding:  12px;
 }
 .box.visible {
     display: block;
@@ -195,14 +187,17 @@ label {
     background: #EFEFEF;
     margin: 0 0 30px;
 }
+
 ul.htabs {
-height: 28px;
+height: 0px;
 line-height: 25px;
 list-style: none;
 border-bottom: 1px solid #DDD;
 background: #FFF;
-padding-left: 0;
+padding-left: 0px;
+margin-bottom: 28px;
 }
+
 .htabs li {
     float: left;
     display: inline;
@@ -229,7 +224,7 @@ margin-left: 620px;
 width: 400px;
 border: 1px #DBDBDB solid;
 border-radius: 4px;
-
+padding: 5px;
   
 }
 
@@ -247,3 +242,7 @@ border: 1px #DBDBDB solid;
 border-radius: 4px;
 }
 
+div.attribute_group {
+border: 1px #DBDBDB solid;
+
+}
