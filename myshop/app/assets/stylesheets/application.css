@@ -12,14 +12,20 @@
  *= require lightbox
  *= require_tree .
  */
-div.even
-{
-  background-color: #D3D3D3;
-  border-color: #000000;
+div.even {
+background-color: #FFFFFF;
+border: 1px #6C7D94 solid;
+border-radius: 5px;
+padding: 10px;
+margin: 5px;
 }
-div.odd
-{
-  background-color: #D3D3D3;
+
+div.odd {
+background-color: #FFFFFF;
+border: 1px #6C7D94 solid;
+border-radius: 5px;
+padding: 10px;
+margin: 5px;
 }
 
 #hidden {
@@ -216,3 +222,8 @@ float: left;
 margin-left: 620px;  
   
 }
+
+input[type="text"].order {
+    width: 25px;
+}
+
