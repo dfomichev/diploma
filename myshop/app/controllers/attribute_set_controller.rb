@@ -2,10 +2,6 @@ class AttributeSetController < ApplicationController
   require 'securerandom'
   attr_accessor :attributes,:name,:list
 
-  def show
-   init
-   set_data
-  end
   
   def edit
    init
@@ -35,7 +31,7 @@ class AttributeSetController < ApplicationController
     @attributes.save
      		
     set_data
-    render "show"
+    render "edit"
   end
 
   def json

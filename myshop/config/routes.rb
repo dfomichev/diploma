@@ -6,6 +6,7 @@ Myshop::Application.routes.draw do
   get "products/edit"
   get "products/list"
   post "products/save"
+  get "attribute_set/edit"
   resources :products do
   	post "save", on: :member
   	post "add_image", on: :member

@@ -1,4 +1,5 @@
 <p><%= @name %></p>
+<% if @list.respond_to?(:each)%>
 <% @list.each do |k,v| %>
 <div>
       <p><%= k %>&nbsp;<%= v['tag'] %></p>
@@ -8,4 +9,5 @@
 		</p>
 	<% end %>
 </div>
+<% end %>
 <% end %>

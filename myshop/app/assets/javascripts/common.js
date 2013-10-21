@@ -19,6 +19,18 @@ $(document).ready(function() {
 
      });  
   
+    $(document).on('click','#addAttr', function() {
+      $.ajax({
+                           type: "GET",
+                            url: "/attribute_set/edit",
+                            success: function(data){
+                                $("#editContainer").html(data);
+                            }
+                        });
+
+            return false;
+
+     });  
   $(function () {
 
         $("#tree").click(function () {
