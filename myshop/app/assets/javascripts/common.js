@@ -11,7 +11,7 @@ $(document).ready(function() {
                            type: "GET",
                             url: "/products/edit",
                             success: function(data){
-                                $("#editContainer").html(data);
+                                $("#editContainer").empty().html(data);
                             }
                         });
 
@@ -20,11 +20,12 @@ $(document).ready(function() {
      });  
   
     $(document).on('click','#addAttr', function() {
+       
       $.ajax({
                            type: "GET",
                             url: "/attribute_set/edit",
                             success: function(data){
-                                $("#editContainer").html(data);
+                                $("#editContainer").empty().html(data);
                             }
                         });
 

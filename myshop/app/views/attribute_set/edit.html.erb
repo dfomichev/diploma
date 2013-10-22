@@ -3,8 +3,15 @@ $(function() {
   
         var k = $('#p_groups span').length;
         
-    
-        $(document).on('click','#addAttribute', function() {
+
+       $('#addGroup').click( function() {
+          var str = '<%= render :partial => 'group_fields' %>';
+          str=str.replace(/_cnt_/g,k);
+          str=str.replace(/_ord_/g,(k+1)*10);
+          str=str.replace(/_id_/g,k);
+          $('#p_groups').append(str);
+            $('#'+k.toString()).bind("click", function(){
+                    
          var i = $(this).prev().children().filter(":last").attr("counter");
          if (typeof i==='undefined'){ i=0;}
          i = parseInt(i)+1;
@@ -17,20 +24,10 @@ $(function() {
           $(this).prev().append(str);
                 i++;
                 return false;
-        });
-        $(document).on('click','#addGroup', function() {
-          var str = '<%= render :partial => 'group_fields' %>';
-          str=str.replace(/_cnt_/g,k);
-          str=str.replace(/_ord_/g,(k+1)*10);
-        
-          $(str).appendTo('#p_groups');
-                k++;
-               $('.attribute_group').each(function(index)
-                {
-                  $(this).addClass(index % 2 ? 'odd' : 'even');
-                });          
 
-                return false;
+            });
+            k++;
+           return false;
         });
         
         
@@ -52,8 +49,9 @@ $(function() {
 
 
 <%= form_for :attr, url: {action: "save", id: @group_id } do |f| %>
+  <label>Set name:</label>
   <input type="text" name="name" value="<%= @name %>" /><input type="hidden" name="attr_set_id" value="" />
-  <BR>
+  <label>Groups:</label>
   <div id="p_groups">
         <% gc=0 %>
         <%if  @list.respond_to?(:each) %>
@@ -86,10 +84,13 @@ $(function() {
                 
                     </div>
 
-                  <input type="submit" id="addAttribute" value="Add">
+                  <input type="submit" class="addAttribute" value="Add">
         </div>
         </span>
         <% end %>
+        <% else %>
+
+    
         <% end %>
   
   </div>
