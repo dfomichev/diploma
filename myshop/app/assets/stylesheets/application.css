@@ -246,3 +246,9 @@ div.attribute_group {
 border: 1px #DBDBDB solid;
 
 }
+
+p.set_name {
+    padding-top:20px;
+    background: #fff; 
+    border: none;
+}
