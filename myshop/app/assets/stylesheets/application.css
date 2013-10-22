@@ -253,14 +253,20 @@ p.set_name {
     border: none;
 }
 
+
 ul.list-results {
 list-style: none;
 margin: 0;
 width: 380px;
-padding-bottom: 10px;
 background-color: #eee;
 border-radius: 0 0 5px 5px;
 min-height: 60px;
+padding: 10px;
+}
+
+ul.list-results .image img {
+height: 50px;
+width: 50px;
 }
 
 ul.list-results .image {
@@ -269,9 +275,28 @@ height: 50px;
 border: 1px solid #aaa;
 border-radius: 3px;
 background-color: #f6f6f6;
-overflow: hidden;
+padding: 2px;
+position: relative;
+float: left;
+margin-right: 10px;
 }
-ul.list-results img {
-    height: 50px;
-    widht: 50px;
+ul.list-results .name {
+display: inline-block;
+font-size: 20px;
+max-width: 300px;
+padding-bottom: 5px;
+white-space: nowrap;
+}
+ul.list-results li.active > small {
+color: #000;
+}
+ul.list-results li > small {
+display: block;
+font-size: 11px;
+color: #555;
+line-height: 12px;
+}
+div.button {
+border: 1px solid;
+float: right;
 }

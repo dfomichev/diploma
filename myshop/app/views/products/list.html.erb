@@ -6,11 +6,20 @@
 <% if @list.respond_to?(:each) %>
     <% @list.each do |k| %>
         <li> 
-        <span class="image">
+
+         <div class="button">
+                                    Active
+         </div>
+        <div class="image">
             <img src="<%= k["images"][0] %>_thumb">
-            <span class="shadow"></span>
-        </span>
-     <%= k["name"] %>
+        </div>
+        <div class="name">  <%= k["name"] %> </div>
+        <small>
+         <%= k["price"] %><br> 
+        </small>
+         <div class="button">
+                                    Active
+         </div>
         </li>
     <% end %>
 
