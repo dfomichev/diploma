@@ -1,4 +1,4 @@
-$('ul.tabs').on('click', 'li:not(.current)', function() {
+$('ul.tabs').on('click', 'li', function() {
      $(this).addClass('current').siblings().removeClass('current')
            .parents('div.section').find('div.box').eq($(this).index()).show().siblings('div.box').hide();
      var href=$(this).attr('href'); 

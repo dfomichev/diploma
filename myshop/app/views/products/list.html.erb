@@ -1,4 +1,3 @@
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 
        <input id="addProdcut" name="commit" type="submit" value="Add">
 
@@ -6,12 +5,12 @@
 <% if @list.respond_to?(:each) %>
     <% @list.each do |k| %>
         <li> 
-         <div class="button">
+         <div class="delProduct" id=<%= k["id"] %> >
          </div>
         <div class="image">
             <img src="<%= k["images"][0] %>_thumb">
         </div>
-        <div class="name"> <span class="productEdit" id="<%= k["id"] %>"><%= k["name"] %></span></div>
+        <div class="name"> <span class="editProduct" id="<%= k["id"] %>"><%= k["name"] %></span></div>
         <small>
          <%= k["price"] %>&nbsp;<%= @currency %><br> 
         </small>

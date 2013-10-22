@@ -296,7 +296,7 @@ font-size: 11px;
 color: #555;
 line-height: 12px;
 }
-div.button {
+div.delProduct {
 float: right;
 
  cursor: pointer;
@@ -305,7 +305,7 @@ float: right;
  width: 32px;   
 }
 
-.productEdit {
+.rditProduct {
 
 cursor: pointer;
 

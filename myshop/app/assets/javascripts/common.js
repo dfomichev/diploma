@@ -19,7 +19,7 @@ $(document).ready(function() {
 
      });  
 
-    $(document).on('click','.productEdit', function() {
+    $(document).on('click','.editProduct', function() {
               $.ajax({
                            type: "GET",
                             url: "/products/"+$(this).attr('id')+"/edit",
@@ -33,6 +33,21 @@ $(document).ready(function() {
     });
 
 
+    $(document).on('click','.delProduct', function() {
+        var answer = confirm('Are you sure you want to delete this?');
+        if (answer)
+        {
+              $.ajax({
+                           type: "GET",
+                            url: "/products/"+$(this).attr('id')+"/delete",
+                            success: function(data){
+                            }
+                        });
+              $('ul.tabs li.current').trigger( "click" );
+        } 
+            return false;
+
+    });
   
     $(document).on('click','#addAttr', function() {
        
@@ -48,6 +63,6 @@ $(document).ready(function() {
 
      });  
 
-  
+    $('ul.tabs li.current').trigger( "click" );  
 });
 
