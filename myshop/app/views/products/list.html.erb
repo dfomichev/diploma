@@ -1,0 +1,18 @@
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+       <input id="addProdcut" name="commit" type="submit" value="Add">
+
+<ul class="list-results">
+<% if @list.respond_to?(:each) %>
+    <% @list.each do |k| %>
+        <li> 
+        <span class="image">
+            <img src="<%= k["images"][0] %>_thumb">
+            <span class="shadow"></span>
+        </span>
+     <%= k["name"] %>
+        </li>
+    <% end %>
+
+<% end %>
+</ul>

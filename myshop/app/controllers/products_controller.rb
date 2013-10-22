@@ -15,7 +15,6 @@ class ProductsController < ApplicationController
   def list
   
     @list=Products.all.to_a  
-    render text: @list.inspect
   end
     
   def save

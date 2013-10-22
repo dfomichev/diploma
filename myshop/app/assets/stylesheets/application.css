@@ -252,3 +252,26 @@ p.set_name {
     background: #fff; 
     border: none;
 }
+
+ul.list-results {
+list-style: none;
+margin: 0;
+width: 380px;
+padding-bottom: 10px;
+background-color: #eee;
+border-radius: 0 0 5px 5px;
+min-height: 60px;
+}
+
+ul.list-results .image {
+width: 50px;
+height: 50px;
+border: 1px solid #aaa;
+border-radius: 3px;
+background-color: #f6f6f6;
+overflow: hidden;
+}
+ul.list-results img {
+    height: 50px;
+    widht: 50px;
+}
