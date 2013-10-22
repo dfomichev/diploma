@@ -253,15 +253,15 @@ p.set_name {
     border: none;
 }
 
-
 ul.list-results {
 list-style: none;
 margin: 0;
 width: 380px;
 background-color: #eee;
-border-radius: 0 0 5px 5px;
+border-radius: 5px;
 min-height: 60px;
-padding: 10px;
+padding: 4px;
+border: 1px solid #E4E4E4;
 }
 
 ul.list-results .image img {
@@ -297,6 +297,16 @@ color: #555;
 line-height: 12px;
 }
 div.button {
-border: 1px solid;
 float: right;
+
+ cursor: pointer;
+ background-image: url(/assets/del_icon.png) ;
+ height: 32px;
+ width: 32px;   
+}
+
+.productEdit {
+
+cursor: pointer;
+
 }

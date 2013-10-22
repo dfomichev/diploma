@@ -18,6 +18,21 @@ $(document).ready(function() {
             return false;
 
      });  
+
+    $(document).on('click','.productEdit', function() {
+              $.ajax({
+                           type: "GET",
+                            url: "/products/"+$(this).attr('id')+"/edit",
+                            success: function(data){
+                                $("#editContainer").empty().html(data);
+                            }
+                        });
+
+            return false;
+
+    });
+
+
   
     $(document).on('click','#addAttr', function() {
        

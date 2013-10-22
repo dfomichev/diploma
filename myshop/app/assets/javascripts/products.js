@@ -30,10 +30,11 @@
         }).bind("select_node.jstree", function (NODE, REF_NODE) {
             var a = $.jstree._focused().get_selected();
     	});
-    $("#tree2").bind("loaded.jstree", function (event, data) {
+    $("#ptree").bind("loaded.jstree", function (event, data) {
         if (typeof  check_list !=='undefined') {
             $.each( check_list, function( key,value ) {
-               $("#tree2").jstree('check_node','#'+value); 
+               $("#ptree").jstree('check_node','#'+value); 
             });
         }
      })
+

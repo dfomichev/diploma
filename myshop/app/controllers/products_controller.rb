@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   require 'securerandom'
-  attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new, :product_id, :images, :p_categories
+  attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new, :product_id, :images, :p_categories, :currency
 
   def show
    init
@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
   end
   
   def list
-  
+    @currency=get_currency  
     @list=Products.all.to_a  
   end
     
@@ -59,6 +59,9 @@ class ProductsController < ApplicationController
         end 
     end
   end   
+  def get_currency
+      return 'P'  
+  end 
   
   def init
     if params.has_key?('id')
@@ -78,7 +81,6 @@ class ProductsController < ApplicationController
     @attributes=Attributes.all.to_a
     @images=Array.new
     @p_categories='' 
-
     if @products.respond_to?:name
       @name=@products.name
       @sku=@products.sku
