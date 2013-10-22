@@ -1,4 +1,4 @@
-class AttributeSetController < ApplicationController
+class AttributesController < ApplicationController
   require 'securerandom'
   attr_accessor :attributes,:name,:list
 
@@ -8,6 +8,11 @@ class AttributeSetController < ApplicationController
    set_data
    @attribute_types=['string','text','url']
   end
+
+  def list
+    @list=Attributes.all.to_a
+  end
+
 
   def save
     init	

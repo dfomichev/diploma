@@ -5,14 +5,15 @@ Myshop::Application.routes.draw do
   get "categories/show"
   get "products/edit"
   get "products/list"
+  get "attributes/list"
   post "products/save"
-  get "attribute_set/edit"
+  get "attributes/edit"
   resources :products do
   	post "save", on: :member
   	post "add_image", on: :member
 	get "edit", on: :member
   end
-  resources :attribute_set do
+  resources :attributes do
 	post "save",on: :member 
 	get "edit", on: :member 
 	post "json", on: :member 

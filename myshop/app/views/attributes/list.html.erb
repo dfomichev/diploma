@@ -1,0 +1,16 @@
+    <input id="addAttr" name="commit" type="submit" value="Add">
+
+
+<ul class="list-results attribute">
+<% if @list.respond_to?(:each) %>
+    <% @list.each do |k| %>
+        <li>
+         <div class="delAttribute" id=<%= k["id"] %> >
+         </div>
+        <div class="name"> <span class="editAttribute" id="<%= k["id"] %>"><%= k["name"] %></span></div>
+        </li>
+    <% end %>
+
+<% end %>
+</ul>
+

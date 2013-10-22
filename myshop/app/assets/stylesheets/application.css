@@ -244,6 +244,11 @@ border-radius: 4px;
 
 div.attribute_group {
 border: 1px #DBDBDB solid;
+background-color: #FFFFFF;
+border-radius: 5px;
+padding: 10px;
+margin: 5px;
+
 
 }
 
@@ -257,11 +262,8 @@ ul.list-results {
 list-style: none;
 margin: 0;
 width: 380px;
-background-color: #eee;
-border-radius: 5px;
 min-height: 60px;
 padding: 4px;
-border: 1px solid #E4E4E4;
 }
 
 ul.list-results .image img {
@@ -286,6 +288,18 @@ font-size: 20px;
 max-width: 300px;
 padding-bottom: 5px;
 white-space: nowrap;
+cursor: pointer;
+
+}
+
+ul.list-results li {
+color: #000;
+margin: 3px;
+background-color: #F3F3F3;
+border-radius: 5px;
+border: 1px solid #E4E4E4;
+height: 55px;
+padding: 5px;
 }
 ul.list-results li.active > small {
 color: #000;
@@ -305,8 +319,24 @@ float: right;
  width: 32px;   
 }
 
-.rditProduct {
+ul.attribute li {
+height: 32px;
+}
 
+ul.attribute .name {
+margin-top: 5px;
+margin-left: 10px;
+}
+
+div.delAttribute {
+
+ float: right;
+ cursor: pointer;
+ background-image: url(/assets/del_icon.png) ;
+ height: 32px;
+ width: 32px;
+
+}
+.editProduct {
 cursor: pointer;
-
 }

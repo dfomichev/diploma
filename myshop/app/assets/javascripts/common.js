@@ -32,6 +32,19 @@ $(document).ready(function() {
 
     });
 
+    $(document).on('click','.editAttribute', function() {
+              $.ajax({
+                           type: "GET",
+                            url: "/attributes/"+$(this).attr('id')+"/edit",
+                            success: function(data){
+                                $("#editContainer").empty().html(data);
+                            }
+                        });
+
+            return false;
+
+    });
+
 
     $(document).on('click','.delProduct', function() {
         var answer = confirm('Are you sure you want to delete this?');
