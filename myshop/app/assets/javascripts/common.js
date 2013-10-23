@@ -5,9 +5,7 @@ function rand(length,current){
 
 
 $(document).ready(function() {
-    
     $(document).on('click','#addProdcut', function() {
-    $(this).attr('disabled','disabled');
       $.ajax({
                            type: "GET",
                             url: "/products/edit",

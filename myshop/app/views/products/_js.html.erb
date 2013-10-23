@@ -24,6 +24,7 @@
                             }
                         });
 
+        
     $(document).on('click','#addCat', function() {
        var sel=$("#catSel option:selected");
        var cid=sel.attr('cid');
@@ -43,9 +44,7 @@
           $(this).parent().remove();
     });      
 
-   $(document).on('click','#Save', function() {
-        $(this).off( "click" );
-        $( this ).off( event ); 
+    $(document).on('click','#Save', function() {
        <% if params.has_key?(:id) %>
        var id='<%= params[:id]  %>';
        <% else %>
@@ -78,7 +77,6 @@
       });
 
       $(document).on('click','#addSet', function() {
-        $( this ).off( event );
         var set_id=$('#attrSet').find(":selected").attr('set_id');
         var hash=$.post("/attributes/"+set_id+"/json",{sid:"sid"},
           function( data ) {
