@@ -1,5 +1,4 @@
-<%= render "attribute_fields_js" %>
-<%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
+<%= render "js" %>
 
 <% if !@p_categories.as_json.nil? %>
 <script>
@@ -15,6 +14,8 @@
     </ul>
 
     <div class="box visible" style="display: block;">
+
+    <%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
         <%= render("base_set",:locals => { :name=>@name,:sku=>@sku,:price=>@price } ) %>
 
         <div id="extAttrTab">
@@ -47,18 +48,14 @@
                <% end %>
              <% end %>
         </div>
-        <% end %>
-        <script>
-         $.validate({
-            decimalSeparator : '.'
-          });
-        </script>
 
+    <% end %>
     </div>
+
     <div class="box" style="display: none;">
-    <%= form_for :file_upload, url: {action: "add_image", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |f| %>
-         <%= f.file_field :image %>
-        <%= f.submit "Upload",id:"upload" %>
+    <%= form_for :file_upload, url: {action: "add_image", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |a| %>
+         <%= a.file_field :image %>
+        <%= a.submit "Upload",id:"upload" %>
     <% end %>
     
         <div id="images">

@@ -1,0 +1,118 @@
+<script>
+    (function($) {
+        $(function() {
+
+          $('ul.htabs').on('click', 'li:not(.current)', function() {
+               $(this).addClass('current').siblings().removeClass('current')
+               .parents('div.hsection').find('div.box').eq($(this).index()).fadeIn(150).siblings('div.box').hide();
+
+          })
+
+        })
+    })(jQuery)
+
+
+       $('#uplForm').ajaxForm({
+                            type: "POST",
+                            url: "/products/<%= params[:id]  %>/add_image",
+                            error: function(data ) { alert(data); },
+                            success: function(data){
+                                var href=data.replace(/_thumb/,'');
+			                        	var str='<%= render "image" %>'.replace(/_data_/g,data).replace(/_href_/,href);
+                                $("#images").append(str);
+                                $("#hidden").append('<input type=text hidden name=images[] value="/'+data+'">');
+                            }
+                        });
+
+    $(document).on('click','#addCat', function() {
+       var sel=$("#catSel option:selected");
+       var cid=sel.attr('cid');
+       var val=sel.text().replace(/\//g,'&raquo'); 
+       $("#categories").append('<div class="category" id='+cid+'><div class="del_icon_s"></div>  <p>'+val+'<input type=text hidden name="categories[]" value="'+cid+'"></p></div>');
+       return false;
+    });      
+    $(document).on('click','.del_icon', function() {
+          var href=$(this).next().attr('href');
+          $(this).parent().remove();
+          $("input").filter(function () {
+             return this.value === href;
+          }).remove();        
+    });      
+
+    $(document).on('click','.del_icon_s', function() {
+          $(this).parent().remove();
+    });      
+
+   $(document).on('click','#Save', function() {
+        
+        alert(  form.valid() );
+        
+        return false;
+        $( this ).off( event ); 
+         var _data=$('form#product').serialize();
+         $.ajax({
+                           type: "POST",
+                            data : _data,
+                            cache: false,
+                            url: "/products/<%= params[:id]  %>/save",
+                            success: function(data){
+                                $("#result").html(data);
+                            }
+                        });
+
+            return false;
+
+     });
+
+
+      $(document).on('click','#addSet', function() {
+        $( this ).off( event );
+        var set_id=$('#attrSet').find(":selected").attr('set_id');
+        var hash=$.post("/attributes/"+set_id+"/json",{sid:"sid"},
+          function( data ) {
+            var gc=0;
+            $.each(data,function(a,v) {
+                  gc++;
+                  var tmp='<%= render("attribute_fields") %>';
+                  var str='';
+                  var value='';
+                  var type;
+                  var setname=a;
+                  var tag=v['tag'];
+                  var id=v['id'];
+                  str='<%= render("attributes_name") %>'.replace(/_gc_/g,gc).replace(/_setname_/g,setname);
+                  $('#extAttrList').append(str);
+                  var list=v['attributes'];
+                  var ac=0;
+                  $.each(list,function(n,l) {
+                      var valid='';
+                      ac++;
+                      str=tmp;
+                      name=n;
+                      tag=l['tag'];
+                      type=l['type'];
+                      if (type=='href'){
+                        valid='data-validation="url"' ;
+                      }    
+                      str=str.replace(/_setname_/g,setname);
+                      str=str.replace(/_valid_/g,valid);
+                      str=str.replace(/_name_/g,name);
+                      str=str.replace(/_value_/g,value);
+                      str=str.replace(/_tag_/g,tag);
+                      $('#extAttrList').append(str);
+                      var last=$('#extAttrList input:last');
+
+                  });
+
+            });
+
+          },"json") ;
+          return false;
+        });
+
+
+       var form = $( "form#product" );
+        form.validate( { ignore: '' 
+        });
+
+</script>

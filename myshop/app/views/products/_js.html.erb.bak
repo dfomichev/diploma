@@ -44,6 +44,9 @@
     });      
 
    $(document).on('click','#Save', function() {
+        
+//        alert(  form.valid() );
+//        return false;
         $( this ).off( event ); 
          var _data=$('form#product').serialize();
          $.ajax({
@@ -103,11 +106,8 @@
             });
 
           },"json") ;
-          $.validate({
-            decimalSeparator : '.'
-          });
-          return false;
-        });
-         
+
+        var form = $( "form#product" );
+        form.validate();
 
 </script>

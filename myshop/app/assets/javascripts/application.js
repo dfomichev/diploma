@@ -18,4 +18,4 @@
 //= require jquery.jstree/jquery.jstree
 //= require  jquery.form
 //= require lightbox
-//= require form-validator/jquery.form-validator.min
+//= require jquery.validate
