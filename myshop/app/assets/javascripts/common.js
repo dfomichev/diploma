@@ -7,21 +7,23 @@ function rand(length,current){
 $(document).ready(function() {
   
     $(document).on('click','#Save', function() {
-       var id=$(this).closest("#editContainer").children('form').attr('pid');
-       alert(id);
-       return false;  
-       if (! form.valid() ){ return false;}
-         var _data=$('form#product').serialize();
+       form=$(this).closest("#editContainer").find('form');
+       ctl=$(form).attr("id");
+       oid=$(form).attr("pid");
+       isn=$(form).attr("isnew");
+       if (! $(form).valid() ){ return false;}
+         var _data=$(form).serialize();
+         var url="/"+ctl+"/"+oid+"/save";
          $.ajax({
                            type: "POST",
                             data : _data,
                             cache: false,
-                            url: "/products/"+id+"/save",
+                            url: url,
                             success: function(data){
                                 $('ul.tabs li.current').trigger( "click" );
                                 $("#message").html(data);
-                                if (id=='' ){
-                                    $('form#product')[0].reset();
+                                if (isn){
+                                    $(form)[0].reset();
                                 }
                             }
                         });
