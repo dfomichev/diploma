@@ -11,6 +11,7 @@ Myshop::Application.routes.draw do
   resources :products do
   	post "save", on: :member
   	post "add_image", on: :member
+  	get "delete", on: :member
 	get "edit", on: :member
   end
   resources :attributes do

@@ -5,12 +5,39 @@ function rand(length,current){
 
 
 $(document).ready(function() {
+  
+    $(document).on('click','#Save', function() {
+       var id=$(this).closest("#editContainer").children('form').attr('pid');
+       alert(id);
+       return false;  
+       if (! form.valid() ){ return false;}
+         var _data=$('form#product').serialize();
+         $.ajax({
+                           type: "POST",
+                            data : _data,
+                            cache: false,
+                            url: "/products/"+id+"/save",
+                            success: function(data){
+                                $('ul.tabs li.current').trigger( "click" );
+                                $("#message").html(data);
+                                if (id=='' ){
+                                    $('form#product')[0].reset();
+                                }
+                            }
+                        });
+
+            return false;
+
+     });
+
+  
+  
     $(document).on('click','#addProdcut', function() {
       $.ajax({
                            type: "GET",
                             url: "/products/edit",
                             success: function(data){
-                                $("#editContainer").empty().html(data);
+                                $("#Container").empty().html(data);
 
                             }
                         });

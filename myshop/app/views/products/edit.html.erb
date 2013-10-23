@@ -13,7 +13,7 @@
         <li>Tab3</li>
     </ul>
 
-    <form accept-charset="UTF-8" action="/products/save" id="product" method="post">
+    <form accept-charset="UTF-8" pid=<%= @product_id %> action="/products/save" id="product" method="post">
     <div class="box visible" style="display: block;">
         <%= render("base_set",:locals => { :name=>@name,:sku=>@sku,:price=>@price } ) %>
 
@@ -73,8 +73,7 @@
 
 </div>
 
-<input id="Save" name="commit" type="submit" value="Save">
-<input id="Close" name="commit" type="submit" value="Close">
+
 <div id="message"></div>
 
 

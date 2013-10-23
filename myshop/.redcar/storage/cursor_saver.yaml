@@ -91,9 +91,6 @@ cursor_positions:
   - :path: app/views/products/_base_set.html.erb
     :cursor_offset: 0
     :timestamp: 2013-10-18 19:15:00 +07:00
-  - :path: app/views/admin/index.html.erb
-    :cursor_offset: 537
-    :timestamp: 2013-10-19 18:09:24 +07:00
   - :path: app/assets/stylesheets/products.css.scss
     :cursor_offset: 0
     :timestamp: 2013-10-16 18:20:39 +07:00
@@ -109,18 +106,12 @@ cursor_positions:
   - :path: app/assets/stylesheets/categories.css.scss
     :cursor_offset: 0
     :timestamp: 2013-10-16 18:20:39 +07:00
-  - :path: app/assets/stylesheets/application.css
-    :cursor_offset: 3952
-    :timestamp: 2013-10-19 19:21:47 +07:00
   - :path: app/assets/stylesheets/admin.css.scss
     :cursor_offset: 0
     :timestamp: 2013-10-18 19:15:00 +07:00
   - :path: config/routes.rb
     :cursor_offset: 185
     :timestamp: 2013-10-19 16:16:27 +07:00
-  - :path: app/controllers/products_controller.rb
-    :cursor_offset: 232
-    :timestamp: 2013-10-19 18:41:40 +07:00
   - :path: app/controllers/admin_controller.rb
     :cursor_offset: 68
     :timestamp: 2013-10-19 20:37:57 +07:00
@@ -136,12 +127,34 @@ cursor_positions:
   - :path: app/views/products/_attribute_fields_js.html.erb
     :cursor_offset: 300
     :timestamp: 2013-10-19 17:57:45 +07:00
-  - :path: app/assets/javascripts/common.js
-    :cursor_offset: 3264
-    :timestamp: 2013-10-19 20:41:48 +07:00
+  - :path: app/views/admin/index.html.erb
+    :cursor_offset: 520
+    :timestamp: 2013-10-23 18:42:38 +07:00
+    :selection_offset: 511
+    :block_selection_mode: false
+  - :path: app/assets/stylesheets/lightbox.css
+    :cursor_offset: 565
+    :timestamp: 2013-10-19 20:37:53 +07:00
+  - :path: app/assets/javascripts/admin.js
+    :cursor_offset: 0
+    :timestamp: 2013-10-22 22:41:21 +07:00
+  - :path: app/assets/stylesheets/application.css
+    :cursor_offset: 1
+    :timestamp: 2013-10-23 18:47:07 +07:00
   - :path: app/views/products/edit.html.erb
-    :cursor_offset: 2648
-    :timestamp: 2013-10-19 20:40:20 +07:00
-    :selection_offset: 2575
+    :cursor_offset: 340
+    :timestamp: 2013-10-23 18:39:33 +07:00
+  - :path: app/views/products/_js.html.erb
+    :cursor_offset: 1864
+    :timestamp: 2013-10-23 18:29:49 +07:00
+    :selection_offset: 2763
+    :block_selection_mode: false
+  - :path: app/assets/javascripts/common.js
+    :cursor_offset: 374
+    :timestamp: 2013-10-23 18:47:01 +07:00
+  - :path: app/controllers/products_controller.rb
+    :cursor_offset: 2132
+    :timestamp: 2013-10-23 18:39:09 +07:00
+    :selection_offset: 2121
     :block_selection_mode: false
 files_to_retain: 0
