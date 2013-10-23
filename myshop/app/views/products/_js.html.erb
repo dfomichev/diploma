@@ -72,6 +72,11 @@
      });
 
 
+      $(document).on('click','#Close', function() {
+            $(document).find('#editContainer').empty();
+            $(document).find('#addProdcut').removeAttr('disabled');
+      });
+
       $(document).on('click','#addSet', function() {
         $( this ).off( event );
         var set_id=$('#attrSet').find(":selected").attr('set_id');

@@ -7,7 +7,7 @@ function rand(length,current){
 $(document).ready(function() {
     
     $(document).on('click','#addProdcut', function() {
-        $( document ).unbind( "click" );
+    $(this).attr('disabled','disabled');
       $.ajax({
                            type: "GET",
                             url: "/products/edit",
@@ -22,7 +22,6 @@ $(document).ready(function() {
      });  
 
     $(document).on('click','.editProduct', function() {
-        $( document ).unbind( "click" );
               $.ajax({
                            type: "GET",
                             url: "/products/"+$(this).attr('id')+"/edit",
