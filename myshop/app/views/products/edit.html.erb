@@ -13,9 +13,8 @@
         <li>Tab3</li>
     </ul>
 
+    <form accept-charset="UTF-8" action="/products/save" id="product" method="post">
     <div class="box visible" style="display: block;">
-
-    <%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
         <%= render("base_set",:locals => { :name=>@name,:sku=>@sku,:price=>@price } ) %>
 
         <div id="extAttrTab">
@@ -32,7 +31,7 @@
                         <option set_id="<%= v[:id] %>"><%= v[:name] %></option>
                     <% end %>
                 </select>
-                <%= f.submit "Add",id:"addSet" %>
+                <input id="addSet" name="commit" type="submit" value="Add">
             <% end %>
             <div id="extAttrList"></div>
         </div>
@@ -48,10 +47,9 @@
                <% end %>
              <% end %>
         </div>
-
-    <% end %>
     </div>
 
+    </form>
     <div class="box" style="display: none;">
     <%= form_for :file_upload, url: {action: "add_image", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |a| %>
          <%= a.file_field :image %>
@@ -76,7 +74,7 @@
 </div>
 
 <input id="Save" name="commit" type="submit" value="Save">
-<div id="result"></div>
+<div id="message"></div>
 
 
 <%= javascript_include_tag "products", "data-turbolinks-track" => true %>

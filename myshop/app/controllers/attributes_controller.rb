@@ -1,6 +1,6 @@
 class AttributesController < ApplicationController
   require 'securerandom'
-  attr_accessor :attributes,:name,:list
+  attr_accessor :attributes,:name,:list,:is_new
 
   
   def edit
@@ -42,6 +42,15 @@ class AttributesController < ApplicationController
     set_data
     render text: @list.to_json
   end
+
+  def delete
+    p=Attributes.find(params['id'])
+    if p.respond_to?(:destroy);
+        p.destroy
+    end
+    render text: 'Done!'
+  end
+
   
   private 
 
@@ -52,6 +61,7 @@ class AttributesController < ApplicationController
   end
 
   def init
+    @is_new=false
     if params.has_key?('id')
       @attributes=Attributes.find(params['id'])
     else
@@ -59,6 +69,7 @@ class AttributesController < ApplicationController
     end	
     if !attributes
       @attributes=Attributes.new
+      @is_new=true
     end
     @group_id=attributes.id
   end

@@ -55,7 +55,7 @@
 
         
       $(document).on("click",'.addAttribute', function(){
-                    
+             $( this ).off( event );
              var i = $(this).prev().children().filter(":last").attr("counter");
              if (typeof i==='undefined'){ i=0;}
              i = parseInt(i)+1;
@@ -71,13 +71,14 @@
 
        });
        $(document).on('click', '#addGroup', function() {
+          $( this ).off( event );
           var str = '<%= render :partial => 'group_fields' %>';
           str=str.replace(/_cnt_/g,k);
           str=str.replace(/_ord_/g,(k+1)*10);
           str=str.replace(/_id_/g,k);
           $('#p_groups').append(str);
           $('#'+k.toString()).bind("click", function(){
-                    
+             $( this ).off( event );
              var i = $(this).prev().children().filter(":last").attr("counter");
              if (typeof i==='undefined'){ i=0;}
              i = parseInt(i)+1;
@@ -116,6 +117,9 @@
                             success: function(data){
                                 $("#message").html(data);
                                 $('ul.tabs li.current').trigger( "click" );
+                                <% if @is_new %>
+                                    $('form#attrSave')[0].reset(); 
+                                <% end %>
                                 return false;
                             }
         });

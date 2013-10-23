@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
              :price=>params["product"]["price"]
             }
     if params["cat"].respond_to?(:keys)
-        product={:categories=>params["cat"].keys }
+        product.merge!({:categories=>params["cat"].keys })
     end
     if params.has_key?("images") && @images.respond_to?(:each)
         del_images(@images-params["images"])
@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
     product.merge!({:extra_attributes=>params["group"],
                     :images=> params["images"] })
     @products.update_attributes(product )
-    render text: "Done!" #params["cat"].keys   
+    render text: "<small>Product saved.  ID: "+@products.id+"</small>" 
   end
 
   def add_image
@@ -49,6 +49,13 @@ class ProductsController < ApplicationController
      Thumbnails.new(file)
      render text: file.gsub(/public\//,'')
   end
+  def delete
+    p=Products.find(params['id'])
+    if p.respond_to?(:destroy);
+        p.destroy
+    end    
+    render text: 'Done!'
+  end    
   
   private 
   def del_images(list=self)
