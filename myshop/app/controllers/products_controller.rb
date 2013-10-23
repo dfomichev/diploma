@@ -22,8 +22,11 @@ class ProductsController < ApplicationController
     init
     product={:sku=> params["product"]["sku"],
              :name=>params["product"]["name"],
-             :price=>params["product"]["price"],
-             :categories=>params["cat"].keys }
+             :price=>params["product"]["price"]
+            }
+    if params["cat"].respond_to?(:keys)
+        product={:categories=>params["cat"].keys }
+    end
     if params.has_key?("images") && @images.respond_to?(:each)
         del_images(@images-params["images"])
     else 
@@ -80,7 +83,7 @@ class ProductsController < ApplicationController
     @categories=Categories.all.to_a
     @attributes=Attributes.all.to_a
     @images=Array.new
-    @p_categories='' 
+    @p_categories=Array.new
     if @products.respond_to?:name
       @name=@products.name
       @sku=@products.sku

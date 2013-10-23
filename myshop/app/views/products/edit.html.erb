@@ -1,7 +1,7 @@
 <%= render "attribute_fields_js" %>
 <%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: "product" } do |f| %>
 
-<% if !@is_new %>
+<% if !@p_categories.as_json.nil? %>
 <script>
     var check_list=<%= raw @p_categories.as_json %>;
 </script>
@@ -18,7 +18,7 @@
         <%= render("base_set",:locals => { :name=>@name,:sku=>@sku,:price=>@price } ) %>
 
         <div id="extAttrTab">
-            <% if !@is_new %>
+            <% if @products.extra_attributes.respond_to?(:each) %>
               <% @products.extra_attributes.each do |k,v| %>
                <h3><%= k %></h1>
                 <% v.each do |a,b| %>

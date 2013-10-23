@@ -6,7 +6,6 @@ class AttributesController < ApplicationController
   def edit
    init
    set_data
-   @attribute_types=['string','text','url']
   end
 
   def list
@@ -35,8 +34,7 @@ class AttributesController < ApplicationController
     @attributes.update_attribute(:list,attr_set[:list])
     @attributes.save
      		
-    set_data
-    render "edit"
+    render text: 'done!'
   end
 
   def json
@@ -50,6 +48,7 @@ class AttributesController < ApplicationController
   def set_data
    @name=@attributes.name	
    @list=@attributes.list
+   @attribute_types=['string','text','url']
   end
 
   def init

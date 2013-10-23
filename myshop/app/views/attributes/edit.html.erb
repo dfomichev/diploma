@@ -1,5 +1,5 @@
 
-<%= form_for :attr, url: {action: "save", id: @group_id } do |f| %>
+<%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: 'attrSave' }  do |f| %>
   <label>Set name:</label>
   <input type="text" name="name" value="<%= @name %>" /><input type="hidden" name="attr_set_id" value="" />
   <label>Groups:</label>
@@ -47,6 +47,7 @@
   </div>
   <%= f.submit "Add Group",id:"addGroup" %>
   <%= f.submit "Save" %>
+  <div id="message"></div>
 <% end %>
 
 <%= javascript_tag do %>
@@ -108,4 +109,15 @@
           };
                 return false;
         });
+
+       $('#attrSave').ajaxForm({
+                            type: "POST",
+                            url: "/attributes/<%= @group_id  %>/save",
+                            success: function(data){
+                                $("#message").html(data);
+                                $('ul.tabs li.current').trigger( "click" );
+                                return false;
+                            }
+        });
+
 <% end %>

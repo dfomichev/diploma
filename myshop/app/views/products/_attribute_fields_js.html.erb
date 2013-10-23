@@ -42,7 +42,9 @@
     $(document).on('click','.del_icon_s', function() {
           $(this).parent().remove();
     });      
-    $(document).on('click','#Save', function() {
+
+   $(document).on('click','#Save', function() {
+        $( this ).off( event ); 
          var _data=$('form#product').serialize();
          $.ajax({
                            type: "POST",
@@ -58,9 +60,11 @@
 
      });
 
+
       $(document).on('click','#addSet', function() {
+        $( this ).off( event );
         var set_id=$('#attrSet').find(":selected").attr('set_id');
-        var hash=$.post("/attribute_set/"+set_id+"/json",{sid:"sid"},
+        var hash=$.post("/attributes/"+set_id+"/json",{sid:"sid"},
           function( data ) {
             var gc=0;
             $.each(data,function(a,v) {
@@ -72,7 +76,7 @@
                   var setname=a;
                   var tag=v['tag'];
                   var id=v['id'];
-                  str='<%= render("attribute_set_name") %>'.replace(/_gc_/g,gc).replace(/_setname_/g,setname);
+                  str='<%= render("attributes_name") %>'.replace(/_gc_/g,gc).replace(/_setname_/g,setname);
                   $('#extAttrList').append(str);
                   var list=v['attributes'];
                   var ac=0;

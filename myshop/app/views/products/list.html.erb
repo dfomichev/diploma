@@ -8,7 +8,9 @@
          <div class="delProduct" id=<%= k["id"] %> >
          </div>
         <div class="image">
+            <% if !k["images"].nil? %>
             <img src="<%= k["images"][0] %>_thumb">
+            <% end %>
         </div>
         <div class="name"> <span class="editProduct" id="<%= k["id"] %>"><%= k["name"] %></span></div>
         <small>

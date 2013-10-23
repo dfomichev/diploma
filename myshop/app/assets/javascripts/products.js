@@ -36,5 +36,5 @@
                $("#ptree").jstree('check_node','#'+value); 
             });
         }
-     })
+     });
 

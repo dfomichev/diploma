@@ -12,6 +12,8 @@ $(document).ready(function() {
                             url: "/products/edit",
                             success: function(data){
                                 $("#editContainer").empty().html(data);
+                                $('ul.tabs li.current').trigger( "click" );
+
                             }
                         });
 
@@ -61,14 +63,33 @@ $(document).ready(function() {
             return false;
 
     });
+
+    $(document).on('click','.delAttribute', function() {
+        var answer = confirm('Are you sure you want to delete this?');
+        if (answer)
+        {
+              $.ajax({
+                           type: "GET",
+                            url: "/attributes/"+$(this).attr('id')+"/delete",
+                            success: function(data){
+                                
+                            }
+                        });
+              $('ul.tabs li.current').trigger( "click" );
+        }
+            return false;
+
+    });
   
     $(document).on('click','#addAttr', function() {
        
       $.ajax({
                            type: "GET",
-                            url: "/attribute_set/edit",
+                            url: "/attributes/edit",
                             success: function(data){
                                 $("#editContainer").empty().html(data);
+                               $('ul.tabs li.current').trigger( "click" );
+
                             }
                         });
 
