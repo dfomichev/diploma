@@ -1,7 +1,7 @@
 class AttributesController < ApplicationController
   require 'securerandom'
   attr_accessor :attributes,:name,:list,:is_new
-
+  before_filter :authenticate
   
   def edit
    init

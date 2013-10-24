@@ -118,7 +118,7 @@ $(document).ready(function() {
                             url: "/attributes/edit",
                             success: function(data){
                                 $("#Container").empty().html(data);
-
+                                $("#editContainer").show();
                             }
                         });
 

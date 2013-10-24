@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   require 'securerandom'
   attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new, :product_id, :images, :p_categories, :currency
+  before_filter :authenticate, :except =>[:list,:show]
 
   def show
    init

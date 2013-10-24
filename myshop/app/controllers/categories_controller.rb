@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-    
+  before_filter :authenticate, :except => [:json]    
   def save
  	
 	tree= json_to_tree(params[:json].values)
@@ -27,9 +27,6 @@ class CategoriesController < ApplicationController
     render text: 'done'
   end
 
-  def show
-    render "show"
-  end
   def json
 	  render text: tree_to_json(Categories.where(pid: "null"))
   end
