@@ -32,7 +32,11 @@ $(document).ready(function() {
 
      });
 
-  
+    $(document).on('click','#Close', function() {
+            $('#Container').empty();
+            $('#editContainer').hide();
+      }); 
+ 
   
     $(document).on('click','#addProdcut', function() {
       $.ajax({
@@ -40,10 +44,9 @@ $(document).ready(function() {
                             url: "/products/edit",
                             success: function(data){
                                 $("#Container").empty().html(data);
-
+                                $("#editContainer").show();
                             }
                         });
-
             return false;
 
      });  
@@ -53,7 +56,7 @@ $(document).ready(function() {
                            type: "GET",
                             url: "/products/"+$(this).attr('id')+"/edit",
                             success: function(data){
-                                $("#editContainer").empty().html(data);
+                                $("#Container").empty().html(data);
                             }
                         });
 
@@ -66,7 +69,7 @@ $(document).ready(function() {
                            type: "GET",
                             url: "/attributes/"+$(this).attr('id')+"/edit",
                             success: function(data){
-                                $("#editContainer").empty().html(data);
+                                $("#Container").empty().html(data);
                             }
                         });
 
@@ -114,7 +117,7 @@ $(document).ready(function() {
                            type: "GET",
                             url: "/attributes/edit",
                             success: function(data){
-                                $("#editContainer").empty().html(data);
+                                $("#Container").empty().html(data);
 
                             }
                         });

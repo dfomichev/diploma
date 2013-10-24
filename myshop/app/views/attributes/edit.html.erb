@@ -1,5 +1,5 @@
 
-<%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: 'attrSave' }  do |f| %>
+<%= form_for :attr, url: {action: "save", id: @group_id }, html: { id: 'attributes', isnew:  @is_new  }  do |f| %>
   <label>Set name:</label>
   <input type="text" name="name" value="<%= @name %>" /><input type="hidden" name="attr_set_id" value="" />
   <label>Groups:</label>
@@ -13,7 +13,7 @@
                 <div class="gr">
                 <label>Group name:</label>
                 <p> <input type="text" name="group[<%= gc %>][name]" value="<%= k %>" />
-                 <a href="#" id="remGroup">Remove Group</a>
+                 <a href="javascript:void(0)"  onclick="remGroup(this)" >Remove Group</a>
                 </p>
                 </div>
                      <div class="al">
@@ -45,83 +45,10 @@
         <% end %>
   
   </div>
-  <%= f.submit "Add Group",id:"addGroup" %>
-  <%= f.submit "Save" %>
   <div id="message"></div>
 <% end %>
 
+ <input onclick="addGroup()" type="submit" value="Add Group">
 <%= javascript_tag do %>
-        var k = $('#p_groups span').length;
-
-        
-      $(document).on("click",'.addAttribute', function(){
-             $( this ).off( event );
-             var i = $(this).prev().children().filter(":last").attr("counter");
-             if (typeof i==='undefined'){ i=0;}
-             i = parseInt(i)+1;
-             var g_num=$(this).parents("div[class^='attribute_group']").attr("counter");
-          
-              var str = '<%= render 'attribute_fields' %>';
-              str=str.replace(/_cnt_/g,i);
-              str=str.replace(/_gnum_/g,g_num);
-              str=str.replace(/_ord_/g,i*10);
-              $(this).prev().append(str);
-                i++;
-                return false;
-
-       });
-       $(document).on('click', '#addGroup', function() {
-          $( this ).off( event );
-          var str = '<%= render :partial => 'group_fields' %>';
-          str=str.replace(/_cnt_/g,k);
-          str=str.replace(/_ord_/g,(k+1)*10);
-          str=str.replace(/_id_/g,k);
-          $('#p_groups').append(str);
-          $('#'+k.toString()).bind("click", function(){
-             $( this ).off( event );
-             var i = $(this).prev().children().filter(":last").attr("counter");
-             if (typeof i==='undefined'){ i=0;}
-             i = parseInt(i)+1;
-             var g_num=$(this).parents("div[class^='attribute_group']").attr("counter");
-          
-              var str = '<%= render 'attribute_fields' %>';
-              str=str.replace(/_cnt_/g,i);
-              str=str.replace(/_gnum_/g,g_num);
-              str=str.replace(/_ord_/g,i*10);
-              $(this).prev().append(str);
-                i++;
-                return false;
-
-            });
-            k++;
-           return false;
-        });
-        
-        
-        $(document).on('click','#remElemet', function() { 
-          if ($('#attr_list p').length>1){
-            $(this).parents('p').remove();
-          };
-                return false;
-        });
-        $(document).on('click','#remGroup', function() {
-          if ($('#p_groups span').length>1){
-            $(this).parents('span').remove();
-          };
-                return false;
-        });
-
-       $('#attrSave').ajaxForm({
-                            type: "POST",
-                            url: "/attributes/<%= @group_id  %>/save",
-                            success: function(data){
-                                $("#message").html(data);
-                                $('ul.tabs li.current').trigger( "click" );
-                                <% if @is_new %>
-                                    $('form#attrSave')[0].reset(); 
-                                <% end %>
-                                return false;
-                            }
-        });
-
+    <%= render "js" %>
 <% end %>

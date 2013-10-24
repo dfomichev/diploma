@@ -1,0 +1,56 @@
+        var k = $('#p_groups span').length;
+
+
+      $(document).on("click",'.addAttribute', function(){
+             $( this ).off( event );
+             var i = $(this).prev().children().filter(":last").attr("counter");
+             if (typeof i==='undefined'){ i=0;}
+             i = parseInt(i)+1;
+             var g_num=$(this).parents("div[class^='attribute_group']").attr("counter");
+
+              var str = '<%= render 'attribute_fields' %>';
+              str=str.replace(/_cnt_/g,i);
+              str=str.replace(/_gnum_/g,g_num);
+              str=str.replace(/_ord_/g,i*10);
+              $(this).prev().append(str);
+                i++;
+                return false;
+
+       });
+       var addGroup=function() {
+          var str = '<%= render :partial => 'group_fields' %>';
+          str=str.replace(/_cnt_/g,k);
+          str=str.replace(/_ord_/g,(k+1)*10);
+          str=str.replace(/_id_/g,k);
+          $('#p_groups').append(str);
+          $('#'+k.toString()).bind("click", function(){
+             var i = $(this).prev().children().filter(":last").attr("counter");
+             if (typeof i==='undefined'){ i=0;}
+             i = parseInt(i)+1;
+             var g_num=$(this).parents("div[class^='attribute_group']").attr("counter");
+
+              var str = '<%= render 'attribute_fields' %>';
+              str=str.replace(/_cnt_/g,i);
+              str=str.replace(/_gnum_/g,g_num);
+              str=str.replace(/_ord_/g,i*10);
+              $(this).prev().append(str);
+                i++;
+                return false;
+
+            });
+            k++;
+           return false;
+        };
+
+
+        var remEl = function(obj) {
+            $(obj).parents('p').remove();
+                return false;
+        };
+        var remGroup=function(obj) {
+          if ($('#p_groups span').length>1){
+            $(obj).parents('span').remove();
+          };
+                return false;
+        };
+               

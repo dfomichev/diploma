@@ -17,6 +17,7 @@ Myshop::Application.routes.draw do
   resources :attributes do
 	post "save",on: :member 
 	get "edit", on: :member 
+	get "delete", on: :member 
 	post "json", on: :member 
   end
   post "categories/save"
