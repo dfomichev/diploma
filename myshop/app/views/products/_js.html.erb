@@ -12,7 +12,7 @@
     })(jQuery)
 
 
-       $('#uplForm').ajaxForm({
+    $('#uplForm').ajaxForm({
                             type: "POST",
                             url: "/products/<%= params[:id]  %>/add_image",
                             error: function(data ) { alert(data); },
@@ -25,13 +25,6 @@
                         });
 
         
-    $(document).on('click','#addCat', function() {
-       var sel=$("#catSel option:selected");
-       var cid=sel.attr('cid');
-       var val=sel.text().replace(/\//g,'&raquo'); 
-       $("#categories").append('<div class="category" id='+cid+'><div class="del_icon_s"></div>  <p>'+val+'<input type=text hidden name="categories[]" value="'+cid+'"></p></div>');
-       return false;
-    });      
     $(document).on('click','.del_icon', function() {
           var href=$(this).next().attr('href');
           $(this).parent().remove();
@@ -40,16 +33,7 @@
           }).remove();        
     });      
 
-    $(document).on('click','.del_icon_s', function() {
-          $(this).parent().remove();
-    });      
-
-    $(document).on('click','#Close', function() {
-            $(document).find('#editContainer').empty();
-            $(document).find('#addProdcut').removeAttr('disabled');
-      });
-
-      $(document).on('click','#addSet', function() {
+    var  addSet=function() {
         var set_id=$('#attrSet').find(":selected").attr('set_id');
         var hash=$.post("/attributes/"+set_id+"/json",{sid:"sid"},
           function( data ) {
@@ -74,14 +58,10 @@
                       name=n;
                       tag=l['tag'];
                       type=l['type'];
-                      if (type=='href'){
-                        valid='data-validation="url"' ;
-                      }    
                       str=str.replace(/_setname_/g,setname);
                       str=str.replace(/_valid_/g,valid);
                       str=str.replace(/_name_/g,name);
                       str=str.replace(/_value_/g,value);
-                      str=str.replace(/_tag_/g,tag);
                       $('#extAttrList').append(str);
                       var last=$('#extAttrList input:last');
 
@@ -91,7 +71,7 @@
 
           },"json") ;
           return false;
-        });
+        };
 
 
 </script>
