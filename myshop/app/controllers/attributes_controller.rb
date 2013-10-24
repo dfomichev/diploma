@@ -1,4 +1,5 @@
-class AttributesController < ApplicationController
+class AttributesController < AdminController
+  require 'json'
   require 'securerandom'
   attr_accessor :attributes,:name,:list,:is_new
   before_filter :authenticate

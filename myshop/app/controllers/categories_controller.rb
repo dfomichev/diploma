@@ -1,4 +1,5 @@
-class CategoriesController < ApplicationController
+class CategoriesController < AdminController
+  require 'json'  
   before_filter :authenticate, :except => [:json]    
   def save
  	
