@@ -3,10 +3,9 @@ class AttributesController < AdminController
   require 'securerandom'
   attr_accessor :attributes,:name,:list,:is_new
   before_filter :authenticate
+  before_filter :init
   
   def edit
-   init
-   set_data
   end
 
   def list
@@ -15,9 +14,7 @@ class AttributesController < AdminController
 
 
   def save
-    init	
     attr_set={}
-    attr_set[:name]=params[:name]
     attr_set[:name]=params[:name]
     attr_set[:list]={}
 
@@ -39,8 +36,6 @@ class AttributesController < AdminController
   end
 
   def json
-    init
-    set_data
     render text: @list.to_json
   end
 
@@ -54,13 +49,6 @@ class AttributesController < AdminController
 
   
   private 
-
-  def set_data
-   @name=@attributes.name	
-   @list=@attributes.list
-   @attribute_types=['string','text','url']
-  end
-
   def init
     @is_new=false
     if params.has_key?('id')
@@ -73,6 +61,9 @@ class AttributesController < AdminController
       @is_new=true
     end
     @group_id=attributes.id
+    @name=@attributes.name	
+    @list=@attributes.list
+    @attribute_types=ATTR_TYPES
   end
 
 end

@@ -1,0 +1,18 @@
+<div class="pContainer">
+    <label><%= @products.sku %></label><br>
+    <label><%= @products.name %></label><br>
+    <label><%= @products.price %></label><br>
+    <% if @products.images.length %>
+        <img src="<%= @products.images[0]+"_thumb" %>" >
+    <% end %>
+    <br>
+    <% if @products.extra_attributes.respond_to?(:each) %>
+       <% @products.extra_attributes.each do |k,v| %>
+          <label><%= k %></label><br>
+          <% v.each do |a,b| %>
+             <label><%= a %>:&nbsp;<%= b["value"] %></label><br>
+          <% end %>
+       <% end %>
+    <% end %>
+    
+</div>

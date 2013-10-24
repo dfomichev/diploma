@@ -1,5 +1,6 @@
 Myshop::Application.routes.draw do
   resources "admin", only: [:index]
+  get "admin/logout"
   get "categories/edit"
   get "categories/save"
   get "categories/show"
@@ -8,6 +9,9 @@ Myshop::Application.routes.draw do
   get "attributes/list"
   post "products/save"
   get "attributes/edit"
+  resources :front do
+    get "show", on: :member
+  end
   resources :products do
   	post "save", on: :member
   	post "add_image", on: :member

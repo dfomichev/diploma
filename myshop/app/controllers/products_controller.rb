@@ -2,15 +2,10 @@ class ProductsController < AdminController
   require 'securerandom'
   attr_accessor :products,:name,:sku,:price,:extra_attributes, :categories, :is_new, :product_id, :images, :p_categories, :currency
   before_filter :authenticate, :except =>[:list,:show]
+  before_filter :init
 
-  def show
-   init
-   set_data
-  end
   
   def edit
-   init
-   render "edit"
   end
   
   def list
@@ -20,7 +15,6 @@ class ProductsController < AdminController
     
   def save
 
-    init
     product={:sku=> params["product"]["sku"],
              :name=>params["product"]["name"],
              :price=>params["product"]["price"]
