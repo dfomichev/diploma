@@ -1,3 +1,5 @@
+<%= session[:login]  %>
+<% if logged_in? %>
 <div id="admin_wrapper">
 <div class="section vertical">
 
@@ -33,4 +35,4 @@
 
 <%= javascript_include_tag "admin", "data-turbolinks-track" => true %>
 
-
+<% end %>
