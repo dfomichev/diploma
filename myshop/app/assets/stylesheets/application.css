@@ -412,19 +412,21 @@ cursor: pointer;
 }
 
 div.pContainer {
-border: 1px #DBDBDB solid;
-border-radius: 4px;
 width: 300px;
 float: left;
 padding: 5px;
 } 
 
 div.pContainer span {
-display: block;
+display: inline-block;
 }
 
 span.pc {
-
+border: 1px #DBDBDB solid;
+border-radius: 4px;
+width: 300px;
+margin: 3px;
+padding: 3px;
 }
 span.pc img {
 border: 1px #DBDBDB solid;

@@ -3,15 +3,16 @@
 <div class="pContainer">
     <% if @products.respond_to?(:each) %>
 
-           <span class="pc">
         <% @products.each do |k,v|  %>
 
+           <span class="pc">
                <img src="<%= k['images'][0] %>_thumb">
                <span>
                <label id=<%= k['id'] %> class="name" ><%= k['name'] %> </label>
                <label class="price"><%= k['price'] %> </label>
-                </span>
+
+               </span>
+           </span>
         <% end %>
-            </span>
     <% end %>
 <div>
