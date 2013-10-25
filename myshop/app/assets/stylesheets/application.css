@@ -368,8 +368,10 @@ padding: 5px;
 }
 
 div.cContainer {
-
-width: 600px;
+border: 1px #DBDBDB solid;
+border-radius: 4px;
+width: 300px;
+float: left;
 } 
 
 span.sc {

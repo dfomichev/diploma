@@ -3,6 +3,13 @@ class FrontController < ApplicationController
   @categories=cat_tree(Categories.where(pid: "null")) ;
 #  render text: @categories   
  end   
+ def children
+  @children=Categories.where(pid: params[:id])
+ end 
+
+ def products
+  @products=Products.where(categories: params[:id])
+ end 
  def show
  if params.has_key?('id')
      @products=Products.find(params['id'])

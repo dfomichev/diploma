@@ -12,6 +12,8 @@ Myshop::Application.routes.draw do
   get "front/index"  
   resources :front do
     get "show", on: :member
+    get "children", on: :member
+    get "products", on: :member
   end
   resources :products do
   	post "save", on: :member

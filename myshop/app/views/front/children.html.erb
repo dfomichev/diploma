@@ -1,0 +1,14 @@
+ <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+<div class="cContainer">
+    <% if @children.respond_to?(:each) %>
+
+           <span class="sc">
+        <% @children.each do |k,v|  %>
+               <span>
+               <label id=<%= k['id'] %> class="cc" ><%= k['name'] %> </label>
+                </span>
+        <% end %>
+            </span>
+    <% end %>
+<div>
