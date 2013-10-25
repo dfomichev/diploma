@@ -340,3 +340,29 @@ div.delAttribute {
 .editProduct {
 cursor: pointer;
 }
+div.pAttrContainer {
+float: left;
+margin-right: 10px;
+width: 450;
+border: 1px #DBDBDB solid;
+border-radius: 4px;
+padding: 5px;
+}
+div.pAttrContainer div.attr {
+display: inline-block;
+width: 200px;
+float: left;
+background: url(/assets/dot.gif) repeat-x 100% .9em;
+}
+div.sImg {
+
+display: inline-block;
+
+}
+
+div.sImg img {
+
+border: 1px #DBDBDB solid;
+border-radius: 4px;
+padding: 5px;
+}
