@@ -13,6 +13,10 @@
  *= require_tree .
  */
 
+body, td {
+font-family: Sans-Serif;
+}
+
 div.even {
 background-color: #FFFFFF;
 border-radius: 5px;
@@ -450,7 +454,7 @@ color: black;
 }
 
 span.pc .price {
-font-size: larger;
+font-size: medium;
 font-weight: bold;
 
 }

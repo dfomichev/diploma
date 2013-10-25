@@ -8,6 +8,7 @@ class FrontController < ApplicationController
  end 
 
  def products
+  @currency=CURRENCY
   @products=Products.where(categories: params[:id])
  end 
  def show
