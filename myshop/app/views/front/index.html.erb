@@ -1,0 +1,18 @@
+ <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
+<div class="cContainer">
+    <% if @categories.respond_to?(:each) %>
+        <% @categories.each do |k,v|  %>
+           <div class="sc">
+               <div>
+               <h4><%= k[:name] %> </h4>
+                  <% if k[:children].respond_to?(:each) %>
+                    <% k[:children].each do |a| %>
+                      <%=  a[:name] %>
+                    <% end %>
+                  <% end %>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+<div>
