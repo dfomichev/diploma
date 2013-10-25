@@ -410,3 +410,45 @@ padding-right: 5px;
 cursor: pointer;
 
 }
+
+div.pContainer {
+border: 1px #DBDBDB solid;
+border-radius: 4px;
+width: 300px;
+float: left;
+padding: 5px;
+} 
+
+div.pContainer span {
+display: block;
+}
+
+span.pc {
+
+}
+span.pc img {
+border: 1px #DBDBDB solid;
+border-radius: 4px;
+padding: 2px;
+height: 70px;
+width: 70px;
+float: left;
+margin-right:10px;
+}
+
+span.pc .name {
+text-decoration: underline;
+text-decoration: underline;
+font-size: larger;
+color: blue;
+}
+
+span.pc .name:hover {
+color: black;
+}
+
+span.pc .price {
+font-size: larger;
+font-weight: bold;
+
+}

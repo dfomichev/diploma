@@ -1,12 +1,15 @@
  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 
-<div class="cContainer">
+<div class="pContainer">
     <% if @products.respond_to?(:each) %>
 
-           <span class="sc">
+           <span class="pc">
         <% @products.each do |k,v|  %>
+
+               <img src="<%= k['images'][0] %>_thumb">
                <span>
-               <label id=<%= k['id'] %> class="cc" ><%= k['name'] %> </label>
+               <label id=<%= k['id'] %> class="name" ><%= k['name'] %> </label>
+               <label class="price"><%= k['price'] %> </label>
                 </span>
         <% end %>
             </span>
