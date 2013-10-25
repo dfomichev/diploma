@@ -9,6 +9,7 @@ Myshop::Application.routes.draw do
   get "attributes/list"
   post "products/save"
   get "attributes/edit"
+  get "front/index"  
   resources :front do
     get "show", on: :member
   end

@@ -3,16 +3,16 @@
 <div class="cContainer">
     <% if @categories.respond_to?(:each) %>
         <% @categories.each do |k,v|  %>
-           <div class="sc">
-               <div>
-               <h4><%= k[:name] %> </h4>
+           <span class="sc">
+               <span>
+               <label id=<%= k[:id] %> class="pc" ><%= k[:name] %> </label><br>
                   <% if k[:children].respond_to?(:each) %>
                     <% k[:children].each do |a| %>
-                      <%=  a[:name] %>
+                      <label id=<%= a[:id] %> class="cc" ><%=  a[:name] %></label>&nbsp;
                     <% end %>
                   <% end %>
-                </div>
-            </div>
+                </span>
+            </span>
         <% end %>
     <% end %>
 <div>

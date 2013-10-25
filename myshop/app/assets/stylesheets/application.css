@@ -367,13 +367,44 @@ border-radius: 4px;
 padding: 5px;
 }
 
-div.sc {
+div.cContainer {
+
+width: 600px;
+} 
+
+span.sc {
 display: inline-block;
 padding: 10px;
-border: 1px solid;
 }
 
-div.sc div
+span.sc span
 {
 display: table-cell;
+}
+
+span.sc span label {
+
+text-decoration: underline;
+}
+
+span.sc span label:hover {
+
+color: blue;
+}
+
+span.sc .pc {
+
+display: inline-block;
+font-size: larger;
+font-weight: bold;
+cursor: pointer;
+
+}
+
+span.sc .cc {
+
+float: left;
+padding-right: 5px;
+cursor: pointer;
+
 }
