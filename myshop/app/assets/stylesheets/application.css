@@ -344,11 +344,24 @@ div.delAttribute {
 .editProduct {
 cursor: pointer;
 }
+
+div.pbAttrContainer {
+float: left;
+margin-right: 10px;
+width: 150;
+border-radius: 4px;
+padding: 5px;
+}
+div.pbAttrContainer div.attr {
+display: inline-block;
+width: 100px;
+float: left;
+background: url(/assets/dot.gif) repeat-x 100% .9em;
+}
 div.pAttrContainer {
 float: left;
 margin-right: 10px;
 width: 450;
-border: 1px #DBDBDB solid;
 border-radius: 4px;
 padding: 5px;
 }
@@ -371,6 +384,13 @@ border-radius: 4px;
 padding: 5px;
 }
 
+div#Categories {
+border: 1px #DBDBDB solid;
+border-radius: 4px;
+width: 305px;
+float: left;
+margin: 8px;
+} 
 div#cContainer {
 border: 1px #DBDBDB solid;
 border-radius: 4px;
@@ -421,8 +441,6 @@ cursor: pointer;
 }
 
 div.pc {
-width: 300px;
-float: left;
 padding: 5px;
 } 
 
@@ -464,12 +482,17 @@ font-weight: bold;
 
 }
 
-div.pDetails {
-margin-left: 620px;
-width: 400px;
+#pDetails {
+margin-left: 10px;
 border: 1px #DBDBDB solid;
 border-radius: 4px;
-padding: 5px;
+float: left;
+padding: 3px;
+width: 432px;
+}
+
+#pDetails h2 {
+margin-left:7px;
 }
 
 div.wrapper {
@@ -478,5 +501,9 @@ width: 323px;
 border: 1px #DBDBDB solid;
 border-radius: 4px;
 
+
+}
+
+.pImageContainer {
 
 }

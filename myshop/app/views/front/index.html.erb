@@ -2,8 +2,7 @@
 <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 <%= javascript_include_tag "front", "data-turbolinks-track" => true %>
 
-<div class="wrapper">
-<div id="cContainer">
+<div id="categories">
     <% if @categories.respond_to?(:each) %>
         <% @categories.each do |k,v|  %>
            <span class="sc">
@@ -19,9 +18,12 @@
         <% end %>
     <% end %>
 </div>
-<div id="pContainer">
-</div>
+<div class="wrapper">
+        <div id="cContainer">
+        </div>
+        <div id="pContainer">
+        </div>
 </div>
 
-<div class="pDetails">
+<div id="pDetails" hidden >
 </div>

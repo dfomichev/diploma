@@ -8,6 +8,7 @@
                             url: "/front/"+cid+"/children",
                             success: function(data){
                                 $("#cContainer").empty().html(data);
+                                $('div#pDetails').hide();
                             }
                         });
       }
@@ -27,7 +28,8 @@
                            type: "GET",
                             url: "/front/"+cid+"/show",
                             success: function(data){
-                                $("div.pDetails").empty().html(data);
+                                $("div#pDetails").empty().html(data);
+                               $('div#pDetails').show();
                             }
                         });
             return false;

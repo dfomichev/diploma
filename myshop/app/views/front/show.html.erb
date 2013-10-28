@@ -1,12 +1,17 @@
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-
 
     <h2><%= @products.name %></h2>
 <div class="pc">
-    <div class="pAttrContainer">
+    <div class="pbAttrContainer">
     <div class="attr">SKU</div><label><%= @products.sku %></label>
-    <div class="attr">Name</div><label><%= @products.name %></label>
     <div class="attr">Price</div><label><%= @products.price %></label>
+    </div>
+
+    <div class="pImageContainer"> 
+    <% if @products.images.length %>
+        <div class="sImg"><img src="<%=  @products.images[0] +"_thumb" %>"> </div>
+    <% end %>
+    </div>
+    <div class="pAttrContainer">
     <% if @products.extra_attributes.respond_to?(:each) %>
        <% @products.extra_attributes.each do |k,v| %>
           <h3><%= k %></h3>
@@ -16,12 +21,4 @@
        <% end %>
     <% end %>
     </div>
-    <div class="pImageContainer"> 
-    <% if @products.images.length %>
-        <% @products.images.each do |k| %>
-        <div class="sImg"><img src="<%= k+"_thumb" %>"> </div>
-        <% end %>
-    <% end %>
-    </div>
-    <br>
 </div>
