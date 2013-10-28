@@ -1,6 +1,4 @@
- <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-
-<div class="cContainer">
+<%= raw @path.gsub('/','&raquo;') %>
     <% if @children.respond_to?(:each) %>
 
            <span class="sc">
@@ -11,4 +9,3 @@
         <% end %>
             </span>
     <% end %>
-<div>

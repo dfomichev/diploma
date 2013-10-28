@@ -4,6 +4,7 @@ class FrontController < ApplicationController
 #  render text: @categories   
  end   
  def children
+  @path=Categories.find( params[:id]).path
   @children=Categories.where(pid: params[:id])
  end 
 

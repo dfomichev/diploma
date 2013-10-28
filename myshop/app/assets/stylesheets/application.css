@@ -389,23 +389,29 @@ border: 1px #DBDBDB solid;
 border-radius: 4px;
 width: 305px;
 float: left;
-margin: 8px;
+margin-right: 7px;
 } 
 div#cContainer {
-border: 1px #DBDBDB solid;
-border-radius: 4px;
-width: 305px;
-float: left;
+
 margin: 8px;
+float: left;
+width: 305px;
 } 
 
 span.sc {
+border: 1px #DBDBDB solid;
+border-radius: 4px;
 display: inline-block;
 padding: 10px;
 }
 
 label.ccl {
 margin-right:10px;
+}
+
+span.sc {
+margin: 3px;
+width: 278;
 }
 
 span.sc span
@@ -422,6 +428,7 @@ span.sc span label:hover {
 
 color: blue;
 }
+
 
 span.sc .pc {
 
@@ -483,12 +490,15 @@ font-weight: bold;
 }
 
 #pDetails {
-margin-left: 10px;
-border: 1px #DBDBDB solid;
+margin-left: 70px;
+margin-top: 70px;
+border: 3px #DBDBDB solid;
 border-radius: 4px;
 float: left;
 padding: 3px;
 width: 432px;
+position: absolute;
+background: white;
 }
 
 #pDetails h2 {
@@ -500,10 +510,23 @@ float: left;
 width: 323px;
 border: 1px #DBDBDB solid;
 border-radius: 4px;
-
-
+max-height: 800px;
+overflow-y: auto;
+overflow-x: hidden;
 }
 
 .pImageContainer {
 
 }
+
+#categories {
+padding: 5px;
+}
+
+span#cb {
+cursor: pointer;
+float: right;
+padding-right: 5px;
+font-weight: bold;
+}
+

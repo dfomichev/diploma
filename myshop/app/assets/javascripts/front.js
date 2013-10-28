@@ -1,5 +1,8 @@
 
-
+    var wclose = function() {
+     $("div#pDetails").hide();
+     $("div#pDetails").empty();
+    }
     var listProducts = function(obj) {
       var cid=$(obj).attr('id')        
       if ( $(obj).attr('class')=='cc'){
@@ -8,7 +11,6 @@
                             url: "/front/"+cid+"/children",
                             success: function(data){
                                 $("#cContainer").empty().html(data);
-                                $('div#pDetails').hide();
                             }
                         });
       }
@@ -19,6 +21,8 @@
                                 $("#pContainer").empty().html(data);
                             }
                         });
+
+        $('div#pDetails').hide();
         return false;
 
      };
