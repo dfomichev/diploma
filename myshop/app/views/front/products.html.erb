@@ -8,7 +8,7 @@
            <span class="pc">
                <img src="<%= k['images'][0] %>_thumb">
                <span>
-               <label id=<%= k['id'] %> class="name" ><%= k['name'] %> </label>
+               <label id=<%= k['id'] %> class="name" onclick='showProduct(this);' ><%= k['name'] %> </label>
                <label class="price"><%= k['price'] %>&nbsp; <%= @currency  %>  </label>
 
                </span>
