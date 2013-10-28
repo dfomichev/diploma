@@ -1,7 +1,9 @@
 <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 <%= javascript_include_tag "front", "data-turbolinks-track" => true %>
 
-<div class="cContainer">
+<div class="wrapper">
+<div id="cContainer">
     <% if @categories.respond_to?(:each) %>
         <% @categories.each do |k,v|  %>
            <span class="sc">
@@ -9,11 +11,17 @@
                <label id=<%= k[:id] %> class="pc" ><%= k[:name] %> </label><br>
                   <% if k[:children].respond_to?(:each) %>
                     <% k[:children].each do |a| %>
-                      <label id=<%= a[:id] %> class="cc" ><%=  a[:name] %></label>&nbsp;
+                      <label id=<%= a[:id] %> class="cc" onclick='listProducts(this);' ><%=  a[:name] %></label>&nbsp;
                     <% end %>
                   <% end %>
                 </span>
             </span>
         <% end %>
     <% end %>
-<div>
+</div>
+<div id="pContainer">
+</div>
+</div>
+
+<div class="pDetails">
+</div>

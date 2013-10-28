@@ -371,16 +371,21 @@ border-radius: 4px;
 padding: 5px;
 }
 
-div.cContainer {
+div#cContainer {
 border: 1px #DBDBDB solid;
 border-radius: 4px;
-width: 300px;
+width: 305px;
 float: left;
+margin: 8px;
 } 
 
 span.sc {
 display: inline-block;
 padding: 10px;
+}
+
+label.ccl {
+margin-right:10px;
 }
 
 span.sc span
@@ -415,13 +420,13 @@ cursor: pointer;
 
 }
 
-div.pContainer {
+div.pc {
 width: 300px;
 float: left;
 padding: 5px;
 } 
 
-div.pContainer span {
+div.pc span {
 display: inline-block;
 }
 
@@ -456,5 +461,22 @@ color: black;
 span.pc .price {
 font-size: medium;
 font-weight: bold;
+
+}
+
+div.pDetails {
+margin-left: 620px;
+width: 400px;
+border: 1px #DBDBDB solid;
+border-radius: 4px;
+padding: 5px;
+}
+
+div.wrapper {
+float: left;
+width: 323px;
+border: 1px #DBDBDB solid;
+border-radius: 4px;
+
 
 }
