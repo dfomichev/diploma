@@ -33,13 +33,13 @@ class CategoriesController < AdminController
   end
   
   private
-  def json_to_tree(obj=self,cid="null",path=String.new,h=Array.new)
+  def json_to_tree(obj=self,cid="null",ppath=String.new,h=Array.new)
     obj.each do |a|
       if a.kind_of?(Hash)        
         is_deleted=a['attr'].has_key?('is_deleted')?'true':'false'
         is_new=a['attr'].has_key?('is_new')?'true':'false'
-        path=path+' / '+a["data"]
-        h.push( {:id=>a["attr"]["id"],:name=>a["data"],:pid=>cid,:delete=>is_deleted,:new=>is_new,:path=>path }) 
+        path=ppath+' / '+a["data"]
+        h.push( {:id=>a["attr"]["id"],:name=>a["data"],:pid=>cid,:delete=>is_deleted,:new=>is_new,:path=>ppath+' / '+a["data"] }) 
         if a.has_key?("children")
            c=json_to_tree(a["children"].values,a["attr"]["id"],path)
            h.concat(c)
