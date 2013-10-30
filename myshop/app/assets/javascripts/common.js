@@ -57,6 +57,7 @@ $(document).ready(function() {
                             url: "/products/"+$(this).attr('id')+"/edit",
                             success: function(data){
                                 $("#Container").empty().html(data);
+                                $("#editContainer").show();
                             }
                         });
 
@@ -70,6 +71,7 @@ $(document).ready(function() {
                             url: "/attributes/"+$(this).attr('id')+"/edit",
                             success: function(data){
                                 $("#Container").empty().html(data);
+                                $("#editContainer").show();
                             }
                         });
 

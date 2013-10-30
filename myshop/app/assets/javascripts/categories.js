@@ -2,6 +2,7 @@
         "json_data" : {
             "ajax" : {"url" : "/categories/json"}
         },
+                "default" : { "max_depth"  : 3 },
                 "dnd" : {
                         "drop_finish" : function () {
                         },
