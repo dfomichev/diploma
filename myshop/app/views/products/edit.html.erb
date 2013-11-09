@@ -8,9 +8,9 @@
 <div class="hsection">
 
     <ul class="htabs">
-        <li class="current">Tab1</li>
-        <li class="">Tab2</li>
-        <li>Tab3</li>
+        <li class="current">Атрибуты</li>
+        <li class="">Катеории</li>
+        <li>Изображения</li>
     </ul>
     
     <form accept-charset="UTF-8" pid=<%= @product_id %> isnew=<%= @is_new %> id="products" method="post">
@@ -53,7 +53,7 @@
     <div class="box" style="display: none;">
     <%= form_for :file_upload, url: {action: "add_image", id:"1e445b9e7562756fdd360000" }, html: {id: "uplForm", multipart: true} do |a| %>
          <%= a.file_field :image %>
-        <%= a.submit "Upload",id:"upload" %>
+        <%= a.submit "Загрузить",id:"upload" %>
     <% end %>
     
         <div id="images">
