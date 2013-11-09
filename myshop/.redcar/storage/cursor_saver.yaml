@@ -128,10 +128,8 @@ cursor_positions:
     :cursor_offset: 300
     :timestamp: 2013-10-19 17:57:45 +07:00
   - :path: app/views/admin/index.html.erb
-    :cursor_offset: 520
-    :timestamp: 2013-10-23 18:42:38 +07:00
-    :selection_offset: 511
-    :block_selection_mode: false
+    :cursor_offset: 499
+    :timestamp: 2013-10-23 22:28:15 +07:00
   - :path: app/assets/stylesheets/lightbox.css
     :cursor_offset: 565
     :timestamp: 2013-10-19 20:37:53 +07:00
@@ -142,16 +140,14 @@ cursor_positions:
     :cursor_offset: 1
     :timestamp: 2013-10-23 18:47:07 +07:00
   - :path: app/views/products/edit.html.erb
-    :cursor_offset: 340
-    :timestamp: 2013-10-23 18:39:33 +07:00
+    :cursor_offset: 366
+    :timestamp: 2013-10-23 22:57:45 +07:00
   - :path: app/views/products/_js.html.erb
-    :cursor_offset: 1864
-    :timestamp: 2013-10-23 18:29:49 +07:00
-    :selection_offset: 2763
-    :block_selection_mode: false
+    :cursor_offset: 2048
+    :timestamp: 2013-10-23 23:09:04 +07:00
   - :path: app/assets/javascripts/common.js
-    :cursor_offset: 374
-    :timestamp: 2013-10-23 18:47:01 +07:00
+    :cursor_offset: 1013
+    :timestamp: 2013-10-23 23:04:12 +07:00
   - :path: app/controllers/products_controller.rb
     :cursor_offset: 2132
     :timestamp: 2013-10-23 18:39:09 +07:00
